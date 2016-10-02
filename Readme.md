@@ -3,7 +3,7 @@
 
 **Note**:  *This project exists as a learning project to learn more about electronics, IoT, Aruino / ESP8266 programming and GitHub*
 
-![Not complete - Under Construction](http://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Images/under-construction-256.jpg)
+![Not complete - Under Construction](http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png)
 
 
 
