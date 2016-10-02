@@ -3,8 +3,16 @@
 
 **Note**:  *This project exists as a learning project to learn more about electronics, IoT, Aruino / ESP8266 programming and GitHub*
 
-![Not complete - Under Construction](http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png)
+<p align="center">
 
+<img src="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png">
+
+<br><br>
+
+<b>Please see table at end of this note for references and credits</b><br>
+<br><br>
+ </p>
+ 
 
 
 ## 1.	Introduction
@@ -33,7 +41,11 @@ Table of parts next.  Logic behind choices follows
 
 ### 4.1 Microprocessor
 
-Looking over my design objectives, I immediately gravitated to an Arduino solution.  Several of the more sophisticated projects found online centre around a Raspberry Pi,  but using a tiny computer versus a microcontroller seemed way overkill for my needs and would only drive up costs.   Most lower cost Arduino boards do not have wireless built in which led me to various Wifi add-on boards using Espiriff’s 3V3 ESP8266 chip which is rapidly become the darling for those into IoT projects.  Initially, I planned to 
+Looking over my design objectives, I immediately gravitated to an Arduino solution given the huge amount of support and examples around for this open source microprocessor platform.  Several of the more sophisticated projects found online centre around a Raspberry Pi,  but using a tiny computer versus a microcontroller seemed way overkill for my needs and would only drive up costs. 
+
+However, most low cost Arduino boards do not have wireless connectivity built in which caused me to evaluate various external wireless solutions such as WiFi, Bluetooth LE, Zigbee, etc.  Ultimately, wifi seemed to be the simplest solution for my application which led me to Espiriff’s 3.3V ESP8266 chip which has rapidly become the darling of the hobbyist IoT community.
+
+Initially, I planned to use this in conjuntion with an Arduino (probably a 3.3V Adruino Pro mini to make it power compatible), however, upon further investigation, I realised that the ESP8266 argably **is a microprocessor** in its own right.
 
 ### 4.2 Sensors
 
@@ -61,7 +73,9 @@ Specs:
 
 ##8.	Inspiration and Credits
 
-Inspiration / Idea |   Comments                |
------------------- | :-----------------------: |
-sdsdsdsdsdsdsdsdd  | sdfdssdfsfsfsfsdfsdfsdfsdfsdfsfsdfsf|
-	
+Inspiration / Idea | Comments | Link |
+:------------------ | :----------: | :------ |
+ESP8266 as a microcontroller  | Intro into replacing Arduino w/ ESP8266| [Blog link](https://www.arduino-board.com/arduino/esp8266-arduino) |
+  Meet the Arduino Killer: ESP8266  | Good info on replacing Arduino with ESP8266  |  [Blog link] (http://www.makeuseof.com/tag/meet-arduino-killer-esp8266/) |  
+
+Yet to be  completed
