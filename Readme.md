@@ -78,8 +78,14 @@ To make it easier to work with the ESP-07, I purchased one of the commonly avail
 
 ### 4.2 Temberature Probe Sensors
 
+I chose Maverick replacement temperature probes for my project, one blunt probe for the pit temperature (image on left) and one skewer for the internal meat temperature (image on right).  
+<img src="https://images-na.ssl-images-amazon.com/images/I/61oRTA1X9AL._SX425_.jpg" width="250"> <img src="https://images-na.ssl-images-amazon.com/images/I/212uAku-EvL.jpg" width="250">
 
+My choice of the ETS-732/733 units was made based on a number of online projects and the 4 1/2 star ratings on Amazon.  I believe these probes are based on NPN thermistors (resistance lowers as probe heats up).  The initial drawback with these probes were that 1) they are reasonably costly; and 2) the probes have a high failure rate as apparently they are moisture sensitive.  Some people have reported better run lives by sealing the top of the theermistor tub with food grade high temperature silicon as well as ensuring that probes are not submerged in water when cleaning. 
 
+Only after I had purchased these probes did I come across the excellent open source Heatmeter project documentation.  This group [tested a number of probes] (https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes) and only rated the Maverick ET-732/733 probes as acceptable rather than highly recommnended due to 1) lower resolution and 2) mysterious errors that they sought to mitigate by groundinbg the shielded cable.
+
+<img src="http://capnbry.net/linkmeter/adctherm/#p1t=1&p1r=10000&p2t=1&p2r=45000" width="500">
 
 ### 4.3 Multiplexer
 One issue with the ESP8266 is that it only has a single ADC pin yet my project design requires two or three analog temperature sensors as discussed in the previous section.  At first I thought this might force me back to the Arduino solution (which has multiple analog pins) when I stumbled across multiplexing as a solution.  Multiplexing allows me to combine multiple analog signals into a single signal.
@@ -95,12 +101,13 @@ Note that the datasheet recommends not to float unused inputs, therefore all unu
 
 #### 4.4.1 Battery
 I plan to use a Jackery Giant+ 5V battery bank that I have successfully used for other projects such as powering a dew heater for Milky Way star photography.  The (notional) 1200 mA-hr Jackary Giant+ has both 5V 1A and 2.1A USB outputs.  I previously built a power cable that I will reuse which has a USB power jack on one end, a 2A inline fuse and a male DC power jack on the other
+
 <img src="http://topsmartphones.biz/wp-content/uploads/2015/05/8a7212b7e09b.jpg" width="400">
 
 ####4.4.2 Voltage Regulation####
 Although the adaptor plate has pads to solder on a simple AMS voltage regulator, I chose to purchase a pre-built [step-down converter](http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) which should be suitable to take my 5V battery down to the 3.3V required by the ESP8266.  
 
-<img src="http://g01.a.alicdn.com/kf/HTB16vh2LXXXXXXsaXXXq6xXFXXXl/5V-to-3-3V-DC-DC-Step-Down-Power-Supply-Buck-Module-AMS1117-800mA.jpg" width="400">
+<img src="http://g01.a.alicdn.com/kf/HTB16vh2LXXXXXXsaXXXq6xXFXXXl/5V-to-3-3V-DC-DC-Step-Down-Power-Supply-Buck-Module-AMS1117-800mA.jpg" width="250">
 
 ####4.4.3 Power Filtering####
 I've also read that the ESP8266 is power hungry with potential high current draws plus sensitive to power flucuations which can cause resets or other problems.  To mitigate this, I've chosen to add on a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor, a resister and two parallel capacitors.  This [RLC Filter] (https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Given the stepdown LDO regulator already has smoothing capacitors built into the modules, this is probably overkill
@@ -109,7 +116,7 @@ I've also read that the ESP8266 is power hungry with potential high current draw
 
 
 
-#### 4.4.3 Power Adjustment - Buck Convertor
+#### 4.4.4 Power Adjustment - Buck Convertor
 
 
 
