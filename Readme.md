@@ -85,7 +85,9 @@ My choice of the ETS-732/733 units was made based on a number of online projects
 
 Only after I had purchased these probes did I come across the excellent open source Heatmeter project documentation.  This group [tested a number of probes] (https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes) and only rated the Maverick ET-732/733 probes as acceptable rather than highly recommnended due to 1) lower resolution and 2) mysterious errors that they sought to mitigate by groundinbg the shielded cable.
 
-<img src="http://capnbry.net/linkmeter/adctherm/#p1t=1&p1r=10000&p2t=1&p2r=45000" width="500">
+Regarding resolution, the Heatmeter crowd found that the low end resolution was poor with a 10K voltage divider resistor and recommended using a 22K or even a 47K 1% resisitor - see their graph below.  For my project, I purchased a 43k 1% resistor.
+
+<img src="https://camo.githubusercontent.com/51294a4e50c053ab478d95f847b743ad953e9dc5/687474703a2f2f692e696d6775722e636f6d2f754a594b6141512e706e67" width="500">
 
 ### 4.3 Multiplexer
 One issue with the ESP8266 is that it only has a single ADC pin yet my project design requires two or three analog temperature sensors as discussed in the previous section.  At first I thought this might force me back to the Arduino solution (which has multiple analog pins) when I stumbled across multiplexing as a solution.  Multiplexing allows me to combine multiple analog signals into a single signal.
