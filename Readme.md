@@ -64,19 +64,17 @@ However, most low cost Arduino boards do not have wireless connectivity built in
 Initially, I planned to use this in conjuntion with an Arduino (probably a 3.3V Adruino Pro mini to make it power compatible, which I even went so far as to purchase several), however, upon further investigation, I realised that the ESP8266 arguably **is a microcontroller** in its own right, actually with superior specs to the AT micorcontrollers within most Arduinos.  Even better, the open source community has extended the Arduino IDE to encompass the ESP8266, making it realaitvely easy to use.
 
 ####ESP8266 Selection####
-There are a number of low cost ESP8266 based boards out there, each with their own pros and cons.  At the end of the day, I decided to choose two:  A NodeMCU Ver1 Development board and an AI-Thinker ESP-07 varient.  The NodeMCU board was relatively expensive but set up to be breadboard and programming friendly plus it has built in 3.3V voltage regulation and a serial to USB chip.  I decided to use this board for initial proptyping and then port the system to the lower cost ESP-07 module. 
+There are a number of low cost ESP8266 based boards out there, each with their own pros and cons.  At the end of the day, I decided to choose two:  A NodeMCU Ver1 Development board and an AI-Thinker ESP-07 varient.  The NodeMCU board was relatively expensive but already configured to be breadboard and programming friendly plus it has built in 3.3V voltage regulation and a serial to USB chip.  I decided to use this board for initial proptyping and then port the system to the lower cost ESP-07 module. 
 
 The ESP-07 module has a reasonably large number of pins exposed (pinout is same as ESP-12 variant) but has the advantage of having a connection for an external antenna.  Given I intended to use this project outside by my barbecue in an area where my home Wifi can be intermittant, I was attracted to this feature.  The downside of the ESP-07 module is that 1) pinspacing is not breadboard friendly, 2) requires 3.3V and a realaitvely high current source, with no onboard power regulation and 3) requires an interface like a FTDI board for flash programming.
+
+![](https://sites.google.com/site/tgmaxx/_/rsrc/1453562635906/esp8266-wifi-module/ESP-07%20Pinout.jpg?height=400&width=309)
 
 ####Adaptor Plate####
 To make it easier to work with the ESP-07, I purchased one of the commonly available adaptor plates.  This plate allows you to solder on the ESP8266 ESP07 (or ESP12 which has the same pinout) and then add breadboard friendly spacing header pins.  The adaptor plate also has a pad for a voltage regulator and has an onboard LED.  Although the plate is quite large, spanning most of a typical M2 breadboard, many people use it across the power rails of two side-by-side M2 breadboards.
 
-####Voltage Regulation & Power Filtering####
-Although the adaptor plate has pads to solder on a simple AMS voltage regulator, I chose to purchase a pre-built step-down converter which should be suitable to take my 5V battery down to the 3.3V required by the ESP8266.
+<img src="https://www.fabtolab.com/image/cache/data/Radio/Wifi/espplt2-900x700.jpg" width="500">
 
-I've also read that the ESP8266 is power hungry with potential high current draws plus sensitive to power flucuations which can cause resets or other problems.  To mitigate this, I've chosen to add on a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor, a resister and two parallel capacitors.  This configuration is supposed to filter out high frequency noise and stabilise voltage fluccation.
-
-![Power Filtering Circuit](http://playground.arduino.cc/uploads/ComponentLib/Thermistor4_Schematic.png) 
 
 ### 4.2 Temberature Probe Sensors
 
@@ -86,14 +84,30 @@ I've also read that the ESP8266 is power hungry with potential high current draw
 ### 4.3 Multiplexer
 One issue with the ESP8266 is that it only has a single ADC pin yet my project design requires two or three analog temperature sensors as discussed in the previous section.  At first I thought this might force me back to the Arduino solution (which has multiple analog pins) when I stumbled across multiplexing as a solution.  Multiplexing allows me to combine multiple analog signals into a single signal.
 
-There are a number of multiplexer chips avaible.  I ended up buying TI's CMOS 4066B Quad Bilateral Switch which can also be configured for mux / demux applications for up to four different analog signals [(datasheet info)] (http://www.ti.com/product/CD4066B/description). The 4066B uses a digital control pin to "turn on" a switch  In retrospect, I'm not completely sure that this chip was the best choice.  On the positive side, switching between analog signals is easy by using software to instruct the ESP8266 to pull the repesctive 4066B control pin high to 
+There are a number of multiplexer chips avaible.  I ended up buying TI's CMOS 4066B Quad Bilateral Switch which can also be configured for mux / demux applications for up to four different analog signals [(datasheet info)] (http://www.ti.com/product/CD4066B/description). The 4066B uses a digital control pin to "turn on/off" a switch across two analog input/outputpins as shown in the diagram.  In retrospect, I'm not completely sure that this chip was the best choice for multiplexing.  On the positive side, switching between analog signals is easy by using software to instruct the ESP8266 to pull the repesctive 4066B control pin high to turn on the analog pin.  On the negative side, the pin impedance becomes higher, the lower the voltage.  For my case using 3.3V, the datasheet indicates impedance could be as high as 250 ohms.  I'll investigate whether that causes me any issues.
 
-Note that the datasheetrecommends not to float unused inputs, therefore all unused control pins need to be pulled low, in this case the Control pin for Switch C & D (pins 6 & 12).
+<img src="http://thumbs4.picclick.com/d/l400/pict/261829114091_/100Pcs-Cd4066-Cd4066Be-Ti-Dip-14-Cmos-Quad-Bilateral.jpg" width="250"> <img src="https://hackadaycom.files.wordpress.com/2015/06/4066_pinout.png" width="200">
+
+
+Note that the datasheet recommends not to float unused inputs, therefore all unused control pins need to be pulled low, in my case the unused control pin for switches C & D (pins 6 & 12).
 
 ### 4.4 Power Source / Conditioning
 
 #### 4.4.1 Battery
-I plan to use a Jackery Giant+ 5V battery bank that I have successfully used for other projects such as powering a dew heater for Milky Way and star photography.  The (notional) 1200 mA-hr Jackary Giant+ has both 5V 1A and 2.1A USB outputs.  I have previously built a power cable that I will reuse that has a USB power jack on one end, a 2A inline fuse and a male DC power jack on the other
+I plan to use a Jackery Giant+ 5V battery bank that I have successfully used for other projects such as powering a dew heater for Milky Way star photography.  The (notional) 1200 mA-hr Jackary Giant+ has both 5V 1A and 2.1A USB outputs.  I previously built a power cable that I will reuse which has a USB power jack on one end, a 2A inline fuse and a male DC power jack on the other
+<img src="http://topsmartphones.biz/wp-content/uploads/2015/05/8a7212b7e09b.jpg" width="400">
+
+####4.4.2 Voltage Regulation####
+Although the adaptor plate has pads to solder on a simple AMS voltage regulator, I chose to purchase a pre-built [step-down converter](http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) which should be suitable to take my 5V battery down to the 3.3V required by the ESP8266.  
+
+<img src="http://g01.a.alicdn.com/kf/HTB16vh2LXXXXXXsaXXXq6xXFXXXl/5V-to-3-3V-DC-DC-Step-Down-Power-Supply-Buck-Module-AMS1117-800mA.jpg" width="400">
+
+####4.4.3 Power Filtering####
+I've also read that the ESP8266 is power hungry with potential high current draws plus sensitive to power flucuations which can cause resets or other problems.  To mitigate this, I've chosen to add on a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor, a resister and two parallel capacitors.  This [RLC Filter] (https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Given the stepdown LDO regulator already has smoothing capacitors built into the modules, this is probably overkill
+
+![Power Filtering Circuit](http://playground.arduino.cc/uploads/ComponentLib/Thermistor4_Schematic.png) 
+
+
 
 #### 4.4.3 Power Adjustment - Buck Convertor
 
