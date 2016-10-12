@@ -32,9 +32,18 @@ After some consideration and research, I decided that I wanted my project to hav
 *  Show LED display of current temps when button pushed 
 *  Electronic notifications of some type  (SMS text, email, push, et) for key conditions:  1) alarm if temperatures deviate from desired parameters (pit is too hot or too cold); 2) predictive and actual time to get internal meat temperature above food poisoning “danger zone”, between 40 and 140 deg F where food poisoning bacterial growth risks are greater (note this is mostly on the meat surface so pit temp is the key factor, unless meat is stuffed or contamination pushed into meat by the probe); and  3) alarm when food reaches desired cooking temperature to make final checks and remove from grill and rest meat within a [faux Cambro](http://amazingribs.com/tips_and_technique/faux_cambro.html).
 
-## 3.	Process Logic
+## 3.	Process Flow
 
-To be documented
+
+<img src="http://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Process%20Diagram.jpg"> 
+ 
+The process flow has two distinct domains: 
+1) Hardware based activities - primarily reading thermistor values, smoothing them, converting ADC voltage to temperature and uploading data periodically to the cloue; and 
+2) Cloud software based activities - graphical dashboard display, user input of set points, exception notifications and creation of historical logs.
+
+As much as possible, I sought to minimise the work on the ESP8266 and move this onto the Cloud.  
+
+
 
 ## 4.	Parts
   
@@ -102,7 +111,7 @@ Note that the datasheet recommends not to float unused inputs, therefore all unu
 ### 4.4 Power Source / Conditioning
 
 #### 4.4.1 Battery
-I plan to use a Jackery Giant+ 5V battery bank that I have successfully used for other projects such as powering a dew heater for Milky Way star photography.  The (notional) 1200 mA-hr Jackary Giant+ has both 5V 1A and 2.1A USB outputs.  I previously built a power cable that I will reuse which has a USB power jack on one end, a 2A inline fuse and a male DC power jack on the other
+I plan to use a Jackery Giant+ 5V battery bank that I have successfully used for other projects such as powering a dew heater for Milky Way star photography.  The (nominal) 1200 mA-hr Jackary Giant+ has both 5V 1A and 2.1A USB outputs.  I previously built a power cable that I will reuse which has a USB power jack on one end, a 2A inline fuse and a male DC power jack on the other end.
 
 <img src="http://topsmartphones.biz/wp-content/uploads/2015/05/8a7212b7e09b.jpg" width="400">
 
@@ -123,6 +132,7 @@ I've also read that the ESP8266 is power hungry with potential high current draw
 
 
 ## 5.	Hardware Construction
+
 ## 6.	Code
 ###6.1.	ESP8266 (Arduino programmer)
 ###6.2.	Thinkspeak Dashboard
