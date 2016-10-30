@@ -1,11 +1,14 @@
 # Cloud Smoker BBQ Monitor Project
 
 
+<img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/>
+
+
 **Note**:  *This project exists as a hands-on opportunity to learn more about electronics, IoT, Aruino / ESP8266 programming and GitHub*
 
 <p align="center">
 
-<img src="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png">
+<img src="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png" width="150">
 
 <br><br>
 
