@@ -35,5 +35,15 @@ Coding was done using the Arduino IDE with data uploaded to ThingSpeak for displ
 
 ### Project Overview Document###
 
-A thorough project overview document can be found [here] (http://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Docs/Project%20Overview.md) covering design goals, hardware, software, etc.
-
+A thorough project overview document can be found in the Docs folder [here] (http://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Docs/Project%20Overview.md) covering design goals, hardware, software, etc.
+### Hardware###
+
+The Hardware folder contains Fritzing and Eagle schematics and board layouts.
+
+### Software###
+
+The Software folder contains the full CloudSmoker sketch as well as code blocks that I could individually test and hopefully re-use in future projects.
+
+### Images###
+
+Self explanitory
