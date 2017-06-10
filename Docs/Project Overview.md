@@ -16,12 +16,10 @@
  </p>
  
 ---
- 
+ Table of Contents - will have to manually generate at end as GitHub markdown does not have automatic TOC generation like most MD renderers such as MacDown (amazing they lack this...)
   
 [TOC]  
 
-- 
-{:toc}
 ---
  <br>
 
@@ -134,7 +132,7 @@ Although the adaptor plate has pads to solder on a simple AMS voltage regulator,
 ####4.4.3 Power Filtering####
 I've also read that the ESP8266 is power hungry with potential high current draws plus is sensitive to power flucuations which can cause resets or other problems.  Additionally, the analog thermisters and ADC are easily impacted by noise.
 
-To mitigate this, I've chosen to add a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor in series with a small resistor followed two capacitors in parallel.  This [Lowpass RLC Filter] (https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Basically the inductor blocks AC and the two capacitors short higher frequency to ground.  One Arduino forum member suggests the very small 1-10 ohm resistor (RP) in the RLP filter is unnecessary as the inductor choke has enough resistance on its own.  **To Do: measure inductor resistance on DMM**
+To mitigate this, I've chosen to add a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor in series with a small resistor followed two capacitors in parallel.  This [Lowpass RLC Filter] (https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Basically the inductor blocks AC and the two capacitors shunt higher frequency noise to ground.  One Arduino forum member suggests the very small 1-10 ohm resistor (RP) in the RLP filter is unnecessary as the inductor choke has enough resistance on its own.  **To Do: measure inductor resistance on DMM**
 
 Given the stepdown LDO regulator already has smoothing capacitors built into the modules, this level of filtering is probably overkill.
 
@@ -146,26 +144,25 @@ Given the stepdown LDO regulator already has smoothing capacitors built into the
 
 
 
-## 5.	Schematic / Board Design
-
-### 5.1 Approach
-
-I initially used Fritzing to draw up my circuit layout and, once prototyped on a breadboard, planned to build the circuit on stripboard (Veroboard).  Fritzing is unsurpassed in showing 3D breadboard layouts but the schematics are cumbersome and, if you chose to take it further, I understand the board layout features are problematic.  
-
-As I have spent time learning electronics, I have found stripboards to be non-intuitive and frustrating to build and difficult to debug when they invarribly don't work.  To reliably use this method, I found myself testing the prototype circuit on a breadboard, then re-drawing it in Fritzing on a stripboard and cross-checking the schematic to ensure I had not drawn it up incorrectly.  Even with this level of effort, I often find that I did not propperly allow for component size (electrolyte capacitors are the worst!) and I end of having to adjust the stripboard on the fly - so no surprise when it fails to work.
-
-As such, I decided to use a proper EAD CAD program to 
-
-### 5.2 Software
-
-## 6.	Hardware Construction
 
 
-## 7.	Code
-###7.1.	ESP8266 (Arduino IDE)
-###7.2.	Thinkspeak Dashboard
-###7.3.	IFFT Notifications
-##8.	Wrap-up / Future modification possibilities 
+
+## 5.	Hardware Construction
+
+### 5.1	Schematic / Board Design Layout
+
+I initially used ***FRITZING*** to draw up my circuit layout and, once prototyped on a breadboard, planned to build the circuit on stripboard (Veroboard).  ***FRITZING*** is unsurpassed in generating 3D breadboard illustrations but the schematics are cumbersome and, if you chose to take it further, I understand the board layout features are also problematic.  
+
+While learning electronics, I've found stripboards to be non-intuitive, frustrating to build and difficult to debug when they invarribly don't work.   I end up first testing the prototype circuit on a breadboard, then re-drawing it in ***FRITZING*** on a stripboard layout where I cross-check the schematic vs the stripboard layout to ensure I had not drawn it incorrectly.  Even with this level of effort, I often found that I did not propperly allow for component size (electrolyte capacitors are the worst!) forcing me to adjust the stripboard on the fly while constucting it - so no surprise when it fails to work!!
+
+Consequently, I decided to use a proper EAD CAD program to for schematic and board generation.  
+
+I decided to use ***EAGLE*** given the huge support base out there amongst electronic enthusiasts, despite the limitations of the free version (small board size and lower complexity) . At a later time, I also plan to try out ***KICAD*** to see if this less restrictive open source software will become my preferred package.
+## 6.	Code
+###6.1.	ESP8266 (Arduino IDE)
+###6.2.	Thinkspeak Dashboard
+###6.3.	IFFT Notifications
+##7.	Wrap-up / Future modification possibilities 
 
 Future project extensions / additions / fixes that I am considering:
 
@@ -174,7 +171,7 @@ Future project extensions / additions / fixes that I am considering:
 
 
 
-##9.	Inspiration and Key Credits
+##8.	Inspiration and Key Credits
 
 As a newbie, I spent far too long researching this project on the web, reading and bookmarking countless helpful websites on a wide variety of topics and issues.  In fact, the deep learning was one of the key attractions to me.  The table below lists some of the best sites that I made use of for this project but it would be impossible to have an exhaustive list so my apologies to all those that helped me along the way yet I failed to acknowledge.
 
@@ -184,7 +181,7 @@ ESP8266 as a microcontroller  - Intro into replacing Arduino w/ ESP8266| Dave - 
   Meet the Arduino Killer: ESP8266 - Good info on replacing Arduino with ESP8266  |   | [link] (http://www.makeuseof.com/tag/meet-arduino-killer-esp8266/) |  
  Thermister4 - Used the Input Power Filtering subcircuit idea plus useful sketch info | MODAT7  | [link] (http://playground.arduino.cc/ComponentLib/Thermistor4)
  Huge informtion source for the complex open source Heatmeter project; I found the detailed information on temperature probes and the neat Probe Range Comparison tool quite useful|Bryan Mayland| [link] (https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes)|
- |||
+ Logic Level Conversion between 3.3V ESP8266 and 5V LCD - Application note that is the basis for most simple level convertor modules|Herman Shutte, Philips|[link] (https://cdn-shop.adafruit.com/datasheets/an97055.pdf)|
  |||
  |||
  |||
