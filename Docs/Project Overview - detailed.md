@@ -1,4 +1,4 @@
-# Cloud Smoker BBQ Monitor Project
+# Cloud Smoker BBQ Tempature Monitor Project
 
 <img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/>
 
@@ -16,7 +16,7 @@
  </p>
  
 ---
- Table of Contents - will have to manually generate at end as GitHub markdown does not have automatic TOC generation like most MD renderers such as MacDown (amazing they lack this...)
+ *Table of Contents - will have to manually generate at end as GitHub markdown does not have automatic TOC generation like most MD renderers such as MacDown (amazing they lack this...)*
   
 [TOC]  
 
@@ -25,7 +25,11 @@
 
 ## 1.	Introduction
 
-I recently started smoking large cuts of meat (eg brisket, pork shoulders, etc) within my trusty 20-year old Webber Kettle Barbecue grill.  The finished product has been fantastic and has received rave reviews from my family.  Yet, depending on the meat cut and many other complex factors, the “low and slow” method cooking times can span as long as 10 to 15 hours and requires ongoing monitoring and adjustment.  During a long cook, I find myself checking the digital thermometers on the grill at least hourly and adjusting vents as necessary to maintain desired cooking performance.  Clearly a remote temperature monitor would make monitoring easier and there are a number of commercial models available that do just this, albeit often costly (another case illustrating  “you get what you pay for”).When considering buying a commercial monitor, I immediately wondered if I could build a bespoke barbecue temperature monitor that is lower cost yet specifically tailored to have the features I’m interested in.  Having recently become semi-retired, I’ve used the extra time to begin learning electronics and to pursue other technology / Maker hobbies.  This project presents a great learning (or frustration?) opportunity to gain further knowledge across a number of electronics, microprocessor and web technologies.I fully recognise that this project in itself is nothing new or particularly innovative; the Internet is chocka-block with similar projects, often much more sophisticated and cleverer than what I have in mind.  However, rather than just blindly copying another’s project, working up my own version of a hybrid project forces me to learn broadly as well as providing me the opportunity to pick the best ideas and bring them together into my project to meet my objectives.  The downside is that being new and inexperienced means that “what you don’t know you don’t know” is a major obstacle and it is quite likely that better solutions may be available that I am simply not yet aware of.  I also make lots of mistakes although argably this is the best way to learn!  However, a long journey starts with a single step, so lets get after it!   ##2.	Design Goals
+I recently started smoking large cuts of meat (eg brisket, pork shoulders, etc) within my trusty 22-year old Webber Kettle Barbecue grill.  The finished product has been fantastic and has received rave reviews from my family.  Yet, depending on the meat cut and many other complex factors, the “low and slow” method cooking times can span as long as 10 to 15 hours and requires ongoing monitoring and adjustment.  During a long cook, I find myself checking the digital thermometers on the grill at least hourly and adjusting vents as necessary to maintain desired cooking performance.  Clearly a remote temperature monitor would make monitoring easier and there are a number of commercial models available that do just this, albeit often costly (another case illustrating  “you get what you pay for”).When considering buying a commercial monitor, I immediately wondered if I could build a bespoke barbecue temperature monitor that is lower cost yet specifically tailored to have the particular features I’m interested in.  Having recently become semi-retired, I’ve used the extra time to begin learning electronics and to pursue other technology / Maker hobbies.  This project presents a great learning (or frustration?) opportunity to gain further knowledge across a number of electronics, microprocessor and web technologies.I fully recognise that this project in itself is nothing new or particularly innovative; the Internet is chocka-block with similar projects, often much more sophisticated and cleverer than what I have in mind.  However, rather than just blindly copying another’s project, working up my own version of a hybrid project forces me to learn broadly as well as providing me the opportunity to pick the best ideas and bring them together into my project to meet my personal objectives.  
+
+I'm taking the time to thoroughly document my work as I find it helps me retain what I leaned plus becomes a later reference to refer back to.  Perhaps this project description will also be helpful to someone else.
+
+The downside is that being new and inexperienced means that “what you don’t know you don’t know” is a major obstacle and it is quite likely that better solutions may be available that I am simply not yet aware of.  I also make lots of mistakes although argably this is the best way to learn!  However, a long journey starts with a single step, so lets get after it!   ## 2.	Design Goals
 After some consideration and research, I decided that I wanted my project to have the following features:
 
 * Modest cost by seeking efficient design, using fit-for-purpose electronic components and free web services where possible
@@ -38,7 +42,7 @@ After some consideration and research, I decided that I wanted my project to hav
 *  Fit-for-purpose IoT security 
 *  Ability to view current temperatures numerically and trends graphically through a dashboard; possibly include forward performance modelling in an attempt to predict total cook time (note: not sure the prediction feasibility due the hard-to-predict infamous [**"Stall"**](http://amazingribs.com/tips_and_technique/the_stall.html), the bane of novice and wannabe pitmasters).
 *  Display of current temps on LCD upon button push 
-*  Electronic notifications of some type  (SMS text, email, push, etc) for key conditions:  1) alarm if temperatures deviate from desired parameters (pit is too hot or too cold); 2) predictive and actual time to get internal meat temperature above food poisoning “danger zone”, between 40 and 140 deg F where food poisoning bacterial growth risks are greater (note this is mostly on the meat surface so pit temp is the key factor, unless meat is stuffed or contamination pushed into meat by the probe); and  3) alarm when food reaches desired cooking temperature to make final checks and remove from grill and rest meat within a [faux Cambro](http://amazingribs.com/tips_and_technique/faux_cambro.html).
+*  Electronic notifications of some type  (SMS text, email, push, etc) for key conditions:  1) alarm if temperatures deviate from desired parameters (pit is too hot or too cold); 2) predictive and actual time to get internal meat temperature above food poisoning “danger zone”, between 40 and 140 deg F (4.5 to 60 deg C) where food poisoning bacterial growth risks are greater (note this is mostly on the meat surface so pit temp is the key factor, unless meat is stuffed or contamination pushed into meat by the probe); and  3) alarm when food reaches desired cooking temperature to make final checks and remove from grill and rest meat within a [faux Cambro](http://amazingribs.com/tips_and_technique/faux_cambro.html).
 
 ## 3.	Process Flow
 
@@ -66,7 +70,7 @@ As much as possible, I sought to minimise the work done on the ESP8266 and move 
 |Adafruit White Enclosure for Arduino| Project Box| A$ 22.56| [Core Electronics] (http://core-electronics.com.au/white-enclosure-for-arduino-electronics-enclosure-1-0.html)|
 |LCD 1602 I2C display| Digital 2-line temperature display| A$ 1.50| [Ebay AU] (http://www.ebay.com.au/itm/302095885649?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT)|
 |Maverick ET-732/ET-733 Food Probe| Meat High Temp Probe w/ 6ft stainless steel braided cable| US$16.99| [Amazon USA] (http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT)|
-|Maverick ET732/ET733 Pit Probe| Smoker & Chamber Probe w/ 6ft stainless steel braided cable| US$15.50| [Amazon USA] (https://www.amazon.com/gp/product/B006XLWL7K/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)|
+|Maverick ET732/ET733 Temp Probes| Smoker & Chamber Probe w/ 6ft stainless steel braided cable| US$15.50| [Amazon USA] (https://www.amazon.com/gp/product/B006XLWL7K/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)|
 | 2.5mm mono audio jack - panel mount| Enclosure temp probe receptical jack (2 pieces)| A$ 1.90|[Jaycar] (https://www.jaycar.com.au/2-5mm-socket-mono-switched/p/PS0105)|
 |Miscellaneous passive electronic components|1) 2x 43k resistors (1%) for thermister pullups<br>2) female / female Dupont wires to connect LCD<br>3) 1x Inductor (10 uH) and 2x ceramic capacitors (47nF / 47uF) for RCL lowpass power filtering,<br>4)2x BSS138 transistors and 4x 10k resistors for logic level conversion<br>5) 2x 10k resistors to pull unused 4066B control pins low| <A$ 5.00|[Jaycar] (https://www.jaycar.com.au) or [EBAY AU] (www.ebay.com.au), etc.|
 
@@ -79,10 +83,10 @@ Looking over my design objectives, I immediately gravitated to an Arduino develo
 
 However, most low cost Arduino boards do not have wireless connectivity built in which caused me to evaluate various external wireless solutions such as WiFi, Bluetooth LE, Zigbee, etc.  Ultimately, wifi seemed to be the simplest solution for my application which led me to Espiriff’s 3.3V ESP8266 chip which has rapidly become the darling of the hobbyist IoT community.
 
-Initially, I planned to use this in conjuntion with an Arduino micocontroller (probably a 3.3V Adruino Pro mini to make it voltage compatible, which I even went so far as to purchase several), however, upon further investigation, I realised that the ESP8266 arguably **is a microcontroller** in its own right, actually with superior specs to the AT micorcontrollers driving most Arduinos.  Even better, the open source community has extended the Arduino IDE to encompass the ESP8266, making it realaitvely easy to program.
+Initially, I planned to use this in conjuntion with an Arduino microcontroller (probably a 3.3V Adruino Pro mini to make it voltage compatible; I even went so far as to purchase several), however, upon further investigation, I realised that the ESP8266 arguably **is a microcontroller** in its own right, actually with superior specs to the AT microcontrollers driving most Arduinos.  Even better, the open source community has extended the Arduino IDE to encompass the ESP8266, making it relatively easy / familiar to program.
 
-####ESP8266 Selection####
-There are a number of low cost ESP8266 based boards out there, each with their own pros and cons.  At the end of the day, I decided to choose two:  A NodeMCU Ver1 Development board and an AI-Thinker ESP-07 varient.  The NodeMCU board was relatively expensive but already configured to be breadboard and set up to be programming friendly plus it has built in 3.3V voltage regulation and an onboard serial to USB chip.  I decided to use this board for initial proptyping and then port the system to the lower cost ESP-07 module. 
+#### ESP8266 Selection ####
+There are a number of low cost ESP8266 based boards out there, each with their own pros and cons.  At the end of the day, I decided to choose two:  A NodeMCU Ver1 Development board and an AI-Thinker ESP-07 varient.  The NodeMCU board was relatively expensive but already configured to be breadboard and programming friendly plus it has built in 3.3V voltage regulation and an onboard serial to USB chip.  I decided to use this board for initial proptyping and then port the system to the lower cost ESP-07 module. 
 
 The ESP-07 module has a reasonably large number of pins exposed (pinout is same as ESP-12 variant) but has the advantage of having a connection for an external antenna.  Given I intended to use this project beside my barbecue in an outside area where my home Wifi signal can be intermittant, I was attracted to this feature.  The downside of the ESP-07 module (but not unique to it) is that 1) pinspacing is not breadboard friendly, 2) requires 3.3V and a realaitvely high current source, with no onboard power regulation and 3) requires an interface like a FTDI board for flash programming.
 
@@ -96,16 +100,18 @@ To make it easier to work with the ESP-07, I purchased one of the commonly avail
 
 ### 4.2 Temberature Probe Sensors
 
-I chose Maverick brand replacement temperature probes for my project, one blunt probe for the pit temperature (image on left) and one skewer for the internal meat temperature (image on right).  
+I chose Maverick brand replacement temperature probes for my project, one blunt probe for the pit temperature, ET-733 (image on left) and one skewer for the internal meat temperature, ET-732 (image on right).  
 <img src="https://images-na.ssl-images-amazon.com/images/I/61oRTA1X9AL._SX425_.jpg" width="300"> <img src="https://images-na.ssl-images-amazon.com/images/I/212uAku-EvL.jpg" width="300">
 
-My choice of the ETS-732/733 units was made based seeing these used on a number of online projects and the 4 1/2 star ratings on Amazon.  I believe these probes are based on NPN thermistors (ie. resistance lowers as probe heats up).  The initial drawback with these probes were that 1) they are reasonably costly; and 2) the probes appear to have a high failure rate as apparently they are moisture sensitive.  Some people have reported better run lives by sealing the top of the theermistor tube with food-grade high temperature silicon (which I have not been able to easily source in Australia) as well as ensuring that probes are not submerged in water when cleaning. 
+My choice of the ETS-732/733 units was made based seeing these used on a number of online projects and the 4 1/2 star customer ratings on Amazon.  These probes are based on NPN thermistors (ie. resistance lowers as probe heats up).  The initial drawback with these probes were that 1) they are reasonably costly; and 2) the probes appear to have a high failure rate as apparently they are moisture sensitive.  Some people have reported better run lives by sealing the top of the thermistor tube with food-grade high temperature silicon (which I have not been able to easily source in Australia) as well as ensuring that probes are not submerged in water when cleaning. 
 
 Only after I had purchased these probes did I come across the excellent open source Heatmeter project documentation.  This group [**tested a number of probes**] (https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes) and only rated the Maverick ET-732/733 probes as ***Acceptable*** rather than ***Highly Recommnended*** due to 1) lower resolution and 2) mysterious errors that they sought to mitigate by groundinbg the shielded cable.
 
 Regarding resolution, the Heatmeter crowd found that the low end resolution was poor with a 10K voltage divider resistor and recommended using a 22K or even a 47K 1% resisitor - see their graph below.  For my project, I purchased a 43k 1% resistor.
 
 <img src="https://camo.githubusercontent.com/51294a4e50c053ab478d95f847b743ad953e9dc5/687474703a2f2f692e696d6775722e636f6d2f754a594b6141512e706e67" width="500">
+
+See section xxx for further discussion on the thermistor resolution and datasheet
 
 ### 4.3 Multiplexer
 One issue with the ESP8266 is that it only has a single ADC pin yet my project design requires two or three analog temperature sensors as discussed in the previous section.  At first I thought this might force me back to the Arduino solution (which has multiple analog pins) when I stumbled across multiplexing as a solution.  Multiplexing allows me to combine multiple analog signals into a single signal.
@@ -124,12 +130,12 @@ I plan to use a Jackery Giant+ 5V battery bank that I already own and have succe
 
 <img src="http://topsmartphones.biz/wp-content/uploads/2015/05/8a7212b7e09b.jpg" width="400">
 
-####4.4.2 Step-down (buck) power conversion ####
+#### 4.4.2 Step-down (buck) power conversion ####
 Although the adaptor plate has pads to solder on a simple AMS voltage regulator, I chose to purchase a pre-built [step-down converter](http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) which should be suitable to take my 5V battery down to the 3.3V required by the ESP8266.  This module has some power filtering capacitors built in.
 
 <img src="http://g01.a.alicdn.com/kf/HTB16vh2LXXXXXXsaXXXq6xXFXXXl/5V-to-3-3V-DC-DC-Step-Down-Power-Supply-Buck-Module-AMS1117-800mA.jpg" width="250">
 
-####4.4.3 Power Filtering####
+#### 4.4.3 Power Filtering####
 I've also read that the ESP8266 is power hungry with potential high current draws plus is sensitive to power flucuations which can cause resets or other problems.  Additionally, the analog thermisters and ADC are easily impacted by noise.
 
 To mitigate this, I've chosen to add a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor in series with a small resistor followed two capacitors in parallel.  This [Lowpass RLC Filter] (https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Basically the inductor blocks AC and the two capacitors shunt higher frequency noise to ground.  One Arduino forum member suggests the very small 1-10 ohm resistor (RP) in the RLP filter is unnecessary as the inductor choke has enough resistance on its own.  **To Do: measure inductor resistance on DMM**
@@ -147,17 +153,43 @@ Given the stepdown LDO regulator already has smoothing capacitors built into the
 
 
 
-## 5.	Hardware Construction
+## 5.	Hardware
 
-### 5.1	Schematic / Board Design Layout
+### 5.1	Schematic / Board Design & Layout
 
-I initially used ***FRITZING*** to draw up my circuit layout and, once prototyped on a breadboard, planned to build the circuit on stripboard (Veroboard).  ***FRITZING*** is unsurpassed in generating 3D breadboard illustrations but the schematics are cumbersome and, if you chose to take it further, I understand the board layout features are also problematic.  
+#### 5.11 Approach - KiCad wins!
 
-While learning electronics, I've found stripboards to be non-intuitive, frustrating to build and difficult to debug when they invarribly don't work.   I end up first testing the prototype circuit on a breadboard, then re-drawing it in ***FRITZING*** on a stripboard layout where I cross-check the schematic vs the stripboard layout to ensure I had not drawn it incorrectly.  Even with this level of effort, I often found that I did not propperly allow for component size (electrolyte capacitors are the worst!) forcing me to adjust the stripboard on the fly while constucting it - so no surprise when it fails to work!!
+While learning electronics, I've found stripboards to be non-intuitive, frustrating to build and difficult to debug when they invarribly don't work.   I end up first testing the prototype circuit on a breadboard, then re-drawing it in ***FRITZING*** on a stripboard (Veroboard) layout where I cross-check the schematic vs the stripboard layout to ensure I had not drawn it incorrectly.  Even with this level of effort, I often found that I did not propperly allow for component size (electrolyte capacitors are the worst!) forcing me to adjust the stripboard on the fly while constucting it - so no surprise when it fails to work!!
 
-Consequently, I decided to use a proper EAD CAD program to for schematic and board generation.  
+Consequently, I decided to use a proper EAD CAD program for schematic and board generation.  
 
-I decided to use ***EAGLE*** given the huge support base out there amongst electronic enthusiasts, despite the limitations of the free version (small board size and lower complexity) . At a later time, I also plan to try out ***KICAD*** to see if this less restrictive open source software will become my preferred package.
+I initially considered ***FRITZING***.  FRITZING is unsurpassed in generating 3D breadboard illustrations but FRITZING schematics are cumbersome and, if you chose to take it further, I understand the board layout features are also problematic.  See Hackaday article:  [Creating a PCB In Everything: Friends Don’t Let Friends Use FRITZING] (http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) 
+
+
+I started this project using ***EAGLE*** given the huge software support base out there amongst electronic enthusiasts, despite the limitations of the free version (non-commercial use, small board size and lower complexity). I've successfully built several small projects using EAGLE and climbed the learning curve.  However, during the course of the project, EAGLE changed their licencing approach which prompted me to look into alternatives.
+
+I ended up using the open-source ***KICAD*** package.  Climbing another learning curve was not attractive and explains some of the delays in completing this project.  However, once I got familiar with KiCad, I really liked the tool - especially that it was full featured (heirachical schematics, no size or complexity limitations, superb 3D visualisation, etc.)
+
+#### 5.12 Schematic Overview (Heirachical)
+All KiCad files are available within the /hardware/KiCad directory.
+
+The 
+
+##### 5.121 PowerReg Module
+
+##### 5.122 ESP8266-07 (Microcontroller) Module
+
+##### 5.123 Thermistors Module
+
+##### 5.124 LCD Module
+
+
+
+#### 5.13 Enclosure
+
+
+#### 5.14 Board Layout
+
 ## 6.	Code
 ###6.1.	ESP8266 (Arduino IDE)
 ###6.2.	Thinkspeak Dashboard
@@ -170,10 +202,12 @@ Future project extensions / additions / fixes that I am considering:
 * tbc
 
 
+## 7.	Construction
+
 
 ##8.	Inspiration and Key Credits
 
-As a newbie, I spent far too long researching this project on the web, reading and bookmarking countless helpful websites on a wide variety of topics and issues.  In fact, the deep learning was one of the key attractions to me.  The table below lists some of the best sites that I made use of for this project but it would be impossible to have an exhaustive list so my apologies to all those that helped me along the way yet I failed to acknowledge.
+As a newbie, I spent far too long on this project (over 18 months, interspersed with other projects!) researching on the web, reading and bookmarking countless helpful websites on a wide variety of topics and issues.  In fact, the deep learning was one of the key attractions to me.  The table below lists some of the best sites that I made use of for this project but it would be impossible to have an exhaustive list so my apologies to all those that helped me along the way yet I failed to acknowledge.
 
 Inspiration / Idea | Who |Source |
 :------------------ | :---:| :------ |
