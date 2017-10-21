@@ -94,7 +94,7 @@ There are a number of low cost ESP8266 based boards out there, each with their o
 
 The ESP-07 module has a reasonably large number of pins exposed (pinout is same as ESP-12 variant) but has the advantage of having a connection for an external antenna.  Given I intended to use this project beside my barbecue in an outside area where my home Wifi signal can be intermittant, I was attracted to this feature.  The downside of the ESP-07 module (but not unique to it) is that 1) pinspacing is not breadboard friendly, 2) requires 3.3V and a realaitvely high current source, with no onboard power regulation and 3) requires an interface like a FTDI board for flash programming.
 
-<img src="https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Images/ESP-07%20with%20pinout" width="500">
+<img src="https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Images/ESP-07_with_pinout" width="500">
 
 #### Adaptor Plate ####
 To make it easier to work with the ESP-07, I purchased one of the commonly available adaptor plates.  This plate allows you to solder on the ESP8266 ESP07 (or ESP12 which has the same pinout) and then add breadboard friendly spacing header pins.  The adaptor plate also has a pad for a voltage regulator and has an onboard LED (which I may remove to reduce power draw and increase battery life).  Although the plate is quite large, spanning most of a typical M2 breadboard, many people use it to span across the power rails of two side-by-side M2 breadboards.
