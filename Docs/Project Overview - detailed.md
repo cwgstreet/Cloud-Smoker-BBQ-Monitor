@@ -109,7 +109,8 @@ I chose Maverick brand (replacement) temperature probes for my project, one blun
 
 My choice of the ETS-732/733 units was made based seeing these used on a number of online projects and the 4 1/2 star customer ratings on Amazon.  These probes are based on NPN thermistors (ie. resistance lowers as probe heats up).  The initial drawback with these probes were that 1) they are reasonably costly; and 2) the probes appear to have a high failure rate as apparently they are moisture sensitive.  Some people have reported better run lives by sealing the top of the thermistor tube with food-grade high temperature silicon (which I have not been able to easily source in Australia) as well as ensuring that probes are not submerged in water when cleaning. 
 
-Only after I had purchased these probes did I come across the excellent open source Heatmeter project documentation.  This group [**tested a number of probes**] (https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes) and only rated the Maverick ET-732/733 probes as ***Acceptable*** rather than ***Highly Recommnended*** due to 1) lower resolution and 2) mysterious errors that they sought to mitigate by groundinbg the shielded cable.
+Only after I had purchased these probes did I come across the excellent open source Heatmeter project documentation.  This group [**tested a number of probes**](https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes) 
+and only rated the Maverick ET-732/733 probes as ***Acceptable*** rather than ***Highly Recommnended*** due to 1) lower resolution and 2) mysterious errors that they sought to mitigate by groundinbg the shielded cable.
 
 Regarding resolution, the Heatmeter crowd found that the low end resolution was poor with a 10K voltage divider resistor and recommended using a 22K or even a 47K 1% resisitor - see their graph below.  For my project, I purchased a 39k 1% resistor.
 

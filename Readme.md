@@ -38,7 +38,7 @@ Coding was done using the Arduino IDE with data uploaded to ThingSpeak for displ
 A thorough project overview and description document can be found in the Docs folder [here] (https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Docs/Project%20Overview%20-%20detailed.md) covering design goals, hardware, software, etc.
 ### Hardware ###
 
-The Hardware folder contains 1) some datasheets and 2) KiCad schematics and PCB board layouts.
+The Hardware folder contains 1) KiCad schematics and PCB board layouts and 2) selected datasheets.
 
 ### Software ###
 
