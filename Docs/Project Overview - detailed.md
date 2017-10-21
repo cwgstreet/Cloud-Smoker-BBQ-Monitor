@@ -96,8 +96,10 @@ The ESP-07 module has a reasonably large number of pins exposed (pinout is same 
 
 ![](https://sites.google.com/site/tgmaxx/_/rsrc/1453562635906/esp8266-wifi-module/ESP-07%20Pinout.jpg?height=400&width=309)
 
-####Adaptor Plate - (Remove this as not used?) ####
+#### Adaptor Plate ####
 To make it easier to work with the ESP-07, I purchased one of the commonly available adaptor plates.  This plate allows you to solder on the ESP8266 ESP07 (or ESP12 which has the same pinout) and then add breadboard friendly spacing header pins.  The adaptor plate also has a pad for a voltage regulator and has an onboard LED (which I may remove to reduce power draw and increase battery life).  Although the plate is quite large, spanning most of a typical M2 breadboard, many people use it to span across the power rails of two side-by-side M2 breadboards.
+
+I only used the adaptor plate for breadboard tests as I chose to mount the ESP-07 directly onto my pcb.
 
 <img src="https://www.fabtolab.com/image/cache/data/Radio/Wifi/espplt2-900x700.jpg" width="500">
 
@@ -168,7 +170,7 @@ While learning electronics, I've found stripboards to be non-intuitive, frustrat
 
 Consequently, I decided to use a proper EAD CAD program for schematic and board generation.  
 
-I initially considered ***FRITZING***.  FRITZING is unsurpassed in generating 3D breadboard illustrations but FRITZING schematics are cumbersome and, if you chose to take it further, I understand the board layout features are also problematic.  See Hackaday article:  [Creating a PCB In Everything: Friends Don’t Let Friends Use FRITZING] (http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) 
+I initially considered ***FRITZING***.  FRITZING is unsurpassed in generating 3D breadboard illustrations but FRITZING schematics are cumbersome and, if you chose to take it further, I understand the board layout features are also problematic.  See Hackaday article:  [Creating a PCB In Everything: Friends Don’t Let Friends Use FRITZING](http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) 
 
 
 I started this project using ***EAGLE*** given the huge software support base out there amongst electronic enthusiasts, despite the limitations of the free version (non-commercial use, small board size and lower complexity). I've successfully built several small projects using EAGLE and climbed the learning curve.  However, during the course of the project, EAGLE changed their licencing approach which prompted me to look into alternatives.
@@ -237,7 +239,7 @@ Ref: [ Esp8266 Arduino Core Documentation - I2C (Wire Library)](https://arduino-
 
 ##### 5.123 Thermistors Module - Temperature measurement, signal conditioning  & multiplexing
 
-Dave at *Internet at Home Things* has a nice blog [8 ESP8266 analog inputs for 22 cents] (https://internetofhomethings.com/homethings/?p=530) which got me thinking about a couple of ideas: 1) multiplexing to get around using multiple sensors with the single ESP8266 ADC and 2) using a differential amplifier to better scale the thermistor voltages to the ESP8266 ADC voltage requirements.
+Dave at *Internet at Home Things* has a nice blog [8 ESP8266 analog inputs for 22 cents](https://internetofhomethings.com/homethings/?p=530) which got me thinking about a couple of ideas: 1) multiplexing to get around using multiple sensors with the single ESP8266 ADC and 2) using a differential amplifier to better scale the thermistor voltages to the ESP8266 ADC voltage requirements.
 
 OpAmp level shifter circuit also at http://www.esp8266-projects.com/2015/06/mailbag-arrival-acs712-current-sensor.html/
 
@@ -254,7 +256,7 @@ However they do mention a "hold" function that requires 5uA to override, and tha
 So a pulldown current of up to ~ 1-2mA would be safe to use - i.e. in the ballpark of 3.3kohm @3.3V should do the trick. 
 Putting large capacitors on IO lines is not generally not recommended, as this can cause high peak currents on those IO when they switch, make edge rates very slow, and cause EMI / latchup issues later on -
 so not good for reliability?>
-[Ref: GPIO12-14 high initial state during boot] (http://www.esp8266.com/viewtopic.php?f=13&t=951&start=4)
+[Ref: GPIO12-14 high initial state during boot](http://www.esp8266.com/viewtopic.php?f=13&t=951&start=4)
 
 
 ##### 5.124 LCD Module - Display & Control
