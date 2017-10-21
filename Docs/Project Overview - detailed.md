@@ -94,7 +94,7 @@ There are a number of low cost ESP8266 based boards out there, each with their o
 
 The ESP-07 module has a reasonably large number of pins exposed (pinout is same as ESP-12 variant) but has the advantage of having a connection for an external antenna.  Given I intended to use this project beside my barbecue in an outside area where my home Wifi signal can be intermittant, I was attracted to this feature.  The downside of the ESP-07 module (but not unique to it) is that 1) pinspacing is not breadboard friendly, 2) requires 3.3V and a realaitvely high current source, with no onboard power regulation and 3) requires an interface like a FTDI board for flash programming.
 
-<img src="https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/Images/ESP-07_with_pinout.jpeg" width="500">
+<img src="https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Images/ESP-07-with-pinout.jpg" width="500">
 
 
 
