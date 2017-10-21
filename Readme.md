@@ -33,17 +33,20 @@ Hardware is based around the ESP8266 ESP-07 module (both for WiFi access and mic
 Coding was done using the Arduino IDE with data uploaded to ThingSpeak for display and further processing.  IFTT used for text notifications and Google Sheets for creating barbeque logs.
 
 
-### Project Overview Document###
+### Project Overview Document ###
 
-A thorough project overview and description document can be found in the Docs folder [here] (http://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Docs/Project%20Overview.md) covering design goals, hardware, software, etc.
-### Hardware###
+A thorough project overview and description document can be found in the Docs folder [here] (https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Docs/Project%20Overview%20-%20detailed.md) covering design goals, hardware, software, etc.
+### Hardware ###
 
-The Hardware folder contains KiCad schematics and PCB board layouts.
+The Hardware folder contains 1) some datasheets and 2) KiCad schematics and PCB board layouts.
 
-### Software###
+### Software ###
 
 The Software folder contains the full CloudSmoker sketch as well as individual (function) code blocks that made it easier to individually test functionality and to hopefully re-use in future projects.
 
-### Images###
+### Images ###
 
-self-explanatory
+Self-explanatory
+
+
+--- END ---
