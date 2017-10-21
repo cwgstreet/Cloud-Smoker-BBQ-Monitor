@@ -1,4 +1,4 @@
-# Cloud Smoker BBQ Tempature Monitor Project
+# Cloud Smoker BBQ Temperature Monitor Project
 
 <img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/>
 
@@ -102,7 +102,7 @@ To make it easier to work with the ESP-07, I purchased one of the commonly avail
 <img src="https://www.fabtolab.com/image/cache/data/Radio/Wifi/espplt2-900x700.jpg" width="500">
 
 
-### 4.2 Temberature Probe Sensors
+### 4.2 Temperature Probe Sensors
 
 I chose Maverick brand (replacement) temperature probes for my project, one blunt-ended probe for the pit temperature, ET-733 (image on left) and one skewer for the internal meat temperature, ET-732 (image on right).  
 <img src="https://images-na.ssl-images-amazon.com/images/I/61oRTA1X9AL._SX425_.jpg" width="300"> <img src="https://images-na.ssl-images-amazon.com/images/I/212uAku-EvL.jpg" width="300">
@@ -281,17 +281,17 @@ Future project extensions / additions / fixes that I am considering:
 ## 7.	Construction
 
 
-##8.	Inspiration and Credits
+## 8.	Inspiration and Credits
 
 As a newbie, I spent far too long on this project (over 18 months, interspersed with other projects!) researching on the web, reading and bookmarking countless helpful websites on a wide variety of topics and issues.  In fact, the deep learning was one of the key attractions to me.  I've tried to refer to specific sites in relevant sections of the write-up.  The table below also lists some of the more general useful sites that I found ideas around this project.  Nevertheless it would be impossible to include an exhaustive list so my apologies to all those that helped me along the way yet I failed to acknowledge.
 
 Inspiration / Idea | Who |Source |
 :------------------ | :---:| :------ |
 ESP8266 as a microcontroller  - Intro into replacing Arduino w/ ESP8266| Dave - Arduino Board | [link](https://www.arduino-board.com/arduino/esp8266-arduino) |
-  Meet the Arduino Killer: ESP8266 - Good info on replacing Arduino with ESP8266  |   | [link] (http://www.makeuseof.com/tag/meet-arduino-killer-esp8266/) |  
- Thermister4 - Used the Input Power Filtering subcircuit idea plus useful sketch info | MODAT7  | [link] (http://playground.arduino.cc/ComponentLib/Thermistor4)
- Huge informtion source for the complex open source Heatmeter project; I found the detailed information on temperature probes and the neat Probe Range Comparison tool quite useful|Bryan Mayland| [link] (https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes)|
- Logic Level Conversion between 3.3V ESP8266 and 5V LCD - Application note that is the basis for most simple level convertor modules|Herman Shutte, Philips|[link] (https://cdn-shop.adafruit.com/datasheets/an97055.pdf)|
+  Meet the Arduino Killer: ESP8266 - Good info on replacing Arduino with ESP8266  |   | [link](http://www.makeuseof.com/tag/meet-arduino-killer-esp8266/) |  
+ Thermister4 - Used the Input Power Filtering subcircuit idea plus useful sketch info | MODAT7  | [link](http://playground.arduino.cc/ComponentLib/Thermistor4)
+ Huge informtion source for the complex open source Heatmeter project; I found the detailed information on temperature probes and the neat Probe Range Comparison tool quite useful|Bryan Mayland| [link](https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes)|
+ Logic Level Conversion between 3.3V ESP8266 and 5V LCD - Application note that is the basis for most simple level convertor modules|Herman Shutte, Philips|[link](https://cdn-shop.adafruit.com/datasheets/an97055.pdf)|
  |||
  |||
  |||
