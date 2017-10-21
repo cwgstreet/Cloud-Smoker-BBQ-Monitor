@@ -121,7 +121,7 @@ See section xxx for further discussion on the thermistor resolution and datashee
 ### 4.3 Multiplexer
 One issue with the ESP8266 is that it only has a single ADC pin yet my project design requires two or three analog temperature sensors as discussed in the previous section.  At first I thought this might force me back to the Arduino solution (which has multiple analog pins) when I stumbled across multiplexing as a solution.  Multiplexing allows me to combine multiple analog signals into a single signal.
 
-There are a number of multiplexer chips avaible.  I ended up buying TI's CMOS 4066B Quad Bilateral Switch which can also be configured for mux / demux applications for up to four different analog signals [(datasheet info)] (http://www.ti.com/product/CD4066B/description). The 4066B uses a digital control pin to "turn on/off" a switch across two analog input/output pins as shown in the diagram.  In retrospect, I'm not completely sure that this chip was the best choice for multiplexing.  On the positive side, switching between analog signals is easy by using software to instruct the ESP8266 to pull the repesctive 4066B control pin high to turn on the analog pin.  On the negative side, the lower the voltage, the higher the pin impedance becomes.  For my case using 3.3V, the datasheet indicates impedance could be as high as 250 ohms.  I'll investigate whether that causes me any issues but was encouraged after seeing online reports suggesting it works at 3.3V.
+There are a number of multiplexer chips avaible.  I ended up buying TI's CMOS 4066B Quad Bilateral Switch which can also be configured for mux / demux applications for up to four different analog signals [(datasheet info)](http://www.ti.com/product/CD4066B/description). The 4066B uses a digital control pin to "turn on/off" a switch across two analog input/output pins as shown in the diagram.  In retrospect, I'm not completely sure that this chip was the best choice for multiplexing.  On the positive side, switching between analog signals is easy by using software to instruct the ESP8266 to pull the repesctive 4066B control pin high to turn on the analog pin.  On the negative side, the lower the voltage, the higher the pin impedance becomes.  For my case using 3.3V, the datasheet indicates impedance could be as high as 250 ohms.  I'll investigate whether that causes me any issues but was encouraged after seeing online reports suggesting it works at 3.3V.
 
 <img src="http://thumbs4.picclick.com/d/l400/pict/261829114091_/100Pcs-Cd4066-Cd4066Be-Ti-Dip-14-Cmos-Quad-Bilateral.jpg" width="250"> <img src="https://hackadaycom.files.wordpress.com/2015/06/4066_pinout.png" width="200">
 
@@ -140,10 +140,10 @@ Although the adaptor plate has pads to solder on a simple AMS voltage regulator,
 
 <img src="http://g01.a.alicdn.com/kf/HTB16vh2LXXXXXXsaXXXq6xXFXXXl/5V-to-3-3V-DC-DC-Step-Down-Power-Supply-Buck-Module-AMS1117-800mA.jpg" width="250">
 
-#### 4.4.3 Power Filtering####
+#### 4.4.3 Power Filtering ####
 I've also read that the ESP8266 is power hungry with potential high current draws plus is sensitive to power flucuations which can cause resets or other problems.  Additionally, the analog thermisters and ADC are easily impacted by noise.
 
-To mitigate this, I've chosen to add a "power input filtering subcircuit" that I came across [here] (http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor in series with a small resistor followed two capacitors in parallel.  This [Lowpass RLC Filter] (https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Basically the inductor blocks AC and the two capacitors shunt higher frequency noise to ground.  One Arduino forum member suggests the very small 1-10 ohm resistor (RP) in the RLP filter is unnecessary as the inductor choke has enough resistance on its own.  **To Do: measure inductor resistance on DMM**
+To mitigate this, I've chosen to add a "power input filtering subcircuit" that I came across [here](http://playground.arduino.cc/ComponentLib/Thermistor4) which consists of an axial inductor in series with a small resistor followed two capacitors in parallel.  This [Lowpass RLC Filter](https://en.wikipedia.org/wiki/RLC_circuit) configuration is intended to filter out high frequency noise and stabilise voltage fluccation.  Basically the inductor blocks AC and the two capacitors shunt higher frequency noise to ground.  One Arduino forum member suggests the very small 1-10 ohm resistor (RP) in the RLP filter is unnecessary as the inductor choke has enough resistance on its own.  **To Do: measure inductor resistance on DMM**
 
 Given the stepdown LDO regulator already has smoothing capacitors built into the modules, this level of filtering is probably overkill.
 
@@ -212,7 +212,7 @@ I played with
 
 Note: Before using I2C, pins for SDA and SCL need to be set by calling `Wire.begin(int sda, int scl)`, i.e. `Wire.begin(0, 2)` on ESP-01, else they default to pins 4(SDA) and 5(SCL).
 
-Ref: [ Esp8266 Arduino Core Documentation - I2C (Wire Library)] (https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#i2c-wire-library) 
+Ref: [ Esp8266 Arduino Core Documentation - I2C (Wire Library)](https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#i2c-wire-library) 
 
 |**Pin** |**Function**|**Connection** | I/O |**Comment**|
 |--------|-------|---------------|-----------|----|
