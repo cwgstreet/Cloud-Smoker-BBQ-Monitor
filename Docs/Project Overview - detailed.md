@@ -1,5 +1,7 @@
-# Cloud Smoker BBQ Temperature Monitor Project
+<img align="right" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="130">
 
+# CloudSmoker BBQ Temperature Monitor Project
+---
 <img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/>
 
 
@@ -14,6 +16,8 @@
 <b>Please see table at end of this note for references and credits</b><br>
 <br><br>
  </p>
+ 
+### **Note: Will move to Git Project Wiki later** 
  
 ---
  *Table of Contents - will have to manually generate at end as GitHub markdown does not have automatic TOC generation like most MD renderers such as MacDown (amazing they lack this...)*
@@ -41,8 +45,8 @@ After some consideration and research, I decided that I wanted my project to hav
 *  Fit-for-purpose IoT security 
 *  Ability to monitor the cooking performance from any smart phone, tablet or computer that can open a browser; prefer a WAN solution over a LAN-only approach
 *  Ability to enter temperature set-points on device and also through web browser
-*  Ability to view current temperatures both numerically and also trends graphically through a dashboard; possibly include forward performance modelling in an attempt to predict total cook time (note: not sure the prediction feasibility due the hard-to-predict infamous [**"Stall"**](http://amazingribs.com/tips_and_technique/the_stall.html), the bane of novice and wannabe pitmasters).
 *  Display of current temps on LCD upon button push 
+*  Ability to view current temperatures both numerically and also trends graphically through a dashboard; possibly include forward performance modelling in an attempt to predict total cook time (note: not sure the prediction feasibility due the hard-to-predict infamous "[**Stall**](http://amazingribs.com/tips_and_technique/the_stall.html)", the bane of novice and wannabe pitmasters).
 *  Electronic notifications of some type  (SMS text, email, push, etc) for key conditions:  1) alarm if temperatures deviate from desired parameters (pit is too hot or too cold); 2) predictive and actual time to get internal meat temperature above food poisoning “danger zone”, between 40 and 140 deg F (4.5 to 60 deg C) where food poisoning bacterial growth risks are greater (note this is mostly on the meat surface so pit temp is the key factor, unless meat is stuffed or contamination pushed into meat by the probe); and  3) alarm when food reaches desired cooking temperature to make final checks and remove from grill and rest meat within a [faux Cambro](http://amazingribs.com/tips_and_technique/faux_cambro.html).
 
 ## 3.	Process Flow
@@ -94,7 +98,8 @@ There are a number of low cost ESP8266 based boards out there, each with their o
 
 The ESP-07 module has a reasonably large number of pins exposed (pinout is same as ESP-12 variant) but has the advantage of having a connection for an external antenna.  Given I intended to use this project beside my barbecue in an outside area where my home Wifi signal can be intermittant, I was attracted to this feature.  The downside of the ESP-07 module (but not unique to it) is that 1) pinspacing is not breadboard friendly, 2) requires 3.3V and a realaitvely high current source, with no onboard power regulation and 3) requires an interface like a FTDI board for flash programming.
 
-<img src="https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Images/ESP-07-with-pinout.jpg" width="300">
+
+<img src="https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Images/ESP-07-with-pinout.jpg?raw=true" width="200"> 
 
 
 
@@ -116,11 +121,13 @@ My choice of the ETS-732/733 units was made based seeing these used on a number 
 Only after I had purchased these probes did I come across the excellent open source Heatmeter project documentation.  This group [**tested a number of probes**](https://github.com/CapnBry/HeaterMeter/wiki/HeaterMeter-Probes) 
 and only rated the Maverick ET-732/733 probes as ***Acceptable*** rather than ***Highly Recommnended*** due to 1) lower resolution and 2) mysterious errors that they sought to mitigate by groundinbg the shielded cable.
 
-Regarding resolution, the Heatmeter crowd found that the low end resolution was poor with a 10K voltage divider resistor and recommended using a 22K or even a 47K 1% resisitor - see their graph below.  For my project, I purchased a 39k 1% resistor.
+Regarding resolution, the Heatmeter crowd found that the low end resolution was poor with a 10K voltage divider resistor and recommended using a 22K or even a 47K 1% resisitor - see their graph below.  For my project, I optimised the resistor selection (voltage divider output) for each probe (pit & meat) for the desired temperature measurement range.  
+
+Interestingly, I learned from the datasheet that the Maverick ET-732/733 thermistors have a very high R25 value (zero power resistance at room temperature) of 1M ohms ((1,000k ohms).  This is in contrast with most probes which commonly have R25 values of 10k ohms. Not sure why Maverick chose this; perhaps to minimise thermistor self-heating errors as these probes have very low dissapation factors of ~0.6 mW/deg C? 
 
 <img src="https://camo.githubusercontent.com/51294a4e50c053ab478d95f847b743ad953e9dc5/687474703a2f2f692e696d6775722e636f6d2f754a594b6141512e706e67" width="500">
 
-See section xxx for further discussion on the thermistor resolution and datasheet
+See section xxx for further discussion on the thermistor resolution,  datasheet and optimisation.
 
 ### 4.3 Multiplexer
 One issue with the ESP8266 is that it only has a single ADC pin yet my project design requires two or three analog temperature sensors as discussed in the previous section.  At first I thought this might force me back to the Arduino solution (which has multiple analog pins) when I stumbled across multiplexing as a solution.  Multiplexing allows me to combine multiple analog signals into a single signal.
@@ -158,15 +165,9 @@ Given the stepdown LDO regulator already has smoothing capacitors built into the
 #### 4.4.4 Anthing else?
 
 
+## 5	Schematic 
 
-
-
-
-## 5.	Hardware
-
-### 5.1	Schematic / Board Design & Layout
-
-#### 5.11 Approach - KiCad wins!
+### 5.1 Approach - KiCad wins!
 
 While learning electronics, I've found stripboards to be non-intuitive, frustrating to build and difficult to debug when they invarribly don't work.   I end up first testing the prototype circuit on a breadboard, then re-drawing it in ***FRITZING*** on a stripboard (Veroboard) layout where I cross-check the schematic vs the stripboard layout to ensure I had not drawn it incorrectly.  Even with this level of effort, I often found that I did not propperly allow for component size (electrolyte capacitors are the worst!) forcing me to adjust the stripboard on the fly while constucting it - so no surprise when it fails to work!!
 
@@ -175,48 +176,38 @@ Consequently, I decided to use a proper EAD CAD program for schematic and board 
 I initially considered ***FRITZING***.  FRITZING is unsurpassed in generating 3D breadboard illustrations but FRITZING schematics are cumbersome and, if you chose to take it further, I understand the board layout features are also problematic.  See Hackaday article:  [Creating a PCB In Everything: Friends Don’t Let Friends Use FRITZING](http://www.ebay.com.au/itm/301980725005?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT) 
 
 
-I started this project using ***EAGLE*** given the huge software support base out there amongst electronic enthusiasts, despite the limitations of the free version (non-commercial use, small board size and lower complexity). I've successfully built several small projects using EAGLE and climbed the learning curve.  However, during the course of the project, EAGLE changed their licencing approach which prompted me to look into alternatives.
+I started this project using ***EAGLE***, given the huge software support base out there amongst electronic enthusiasts and despite the limitations of the free version (non-commercial use, small board size and lower complexity). I've successfully built several small projects using EAGLE and climbed the learning curve.  However, during the course of the project, EAGLE changed their licencing approach which prompted me to look into alternatives.
 
 I ended up using the open-source ***KICAD*** package.  Climbing another learning curve was not attractive and explains some of the delays in completing this project.  However, once I got familiar with KiCad, I really liked the tool - especially that it was full featured (heirachical schematics, no size or complexity limitations, superb 3D visualisation, etc.)
 
-#### 5.12 Schematic Overview (Heirachical)
-All KiCad files are available within the /hardware/KiCad directory.
+### 5.2 Schematic Overview (Heirachical)
 
-The 
+All KiCad project files (schematic, board, etc.) are available within the /hardware/KiCad directory.  
 
-##### 5.121 PowerReg Module - 5V to 3.3V conversion and regulation
-
-##### 5.122 ESP8266-07 (Microcontroller) Module
-
-###### Pin-out. ######
-
-One of the many ESP8266 challenges are the limited number of pins,  including a single ADC pin and only six available GPIO pins (ESP-07/12 modules; less pins on other modules).  In general, the other pins are used for start-up or IC operations. 
-
-GPIO pins 6 to 11 are used to connect to flash memory and therefore not availble for use, leaving nine remaining GPIO pins on the ESP-07 module. However, three of these pins are needed for start-up / reset functions as shown in the table below:
-
-<img src="http://www.forward.com.au/pfod/ESP8266/GPIOpins/ESP8266BootOptions.jpg" width="800">
-
-This essentially leaves six GPIO pins free for general use.
-
-This initially presented some issues to me as I  considered my project design, where, after iterating through a number of ideas, I still needed a total of seven GPIO pins:    
-  1. read at least two thermistors into the single ADC (solution:  multiplexing, at the cost of using two GPIO pins);
-  2. Connect a 16x2 LCD display (solution: I2C, requiring another two GPIO pins); and
-  3. Have some sort of LCD menu control & entry (solution: rotary encoder button, requiring an additional three GPIO pins)
-
- So how to  
-
-  
-  
-I played with 
-
-[ref](http://www.forward.com.au/pfod/ESP8266/GPIOpins/ESP8266_01_pin_magic.html)
-
-
+Schematic pdf files can also be found in the top directory. Basically, the hardware schematic details of the following blocks
+    
+1. **Power** - 5V battery in; use stepdown buck module to get 3.3V power rail; power conditioning
  
+2. **Microcontroller / Wifi** - ESP8266-07 module set up with a) tactile momentary buttons for reset / flash mode, b) deep sleep capabilities, c) FTDI programming flash header and d) necessary pull-up / pull-down resistors and capacitors for stable operations
 
-Note: Before using I2C, pins for SDA and SCL need to be set by calling `Wire.begin(int sda, int scl)`, i.e. `Wire.begin(0, 2)` on ESP-01, else they default to pins 4(SDA) and 5(SCL).
+3. **Temperature** - multiplexing (using 4066B quad bilateral chip), thermistor jacks, associated voltage divider and LM358 op-amp for voltage scaling / voltage follower or buffer.
+4. 
+4. **Display / Control** - 16x2 LCD, rotary encoder and logic level shifter
 
-Ref: [ Esp8266 Arduino Core Documentation - I2C (Wire Library)](https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#i2c-wire-library) 
+
+
+
+
+## 6.	Hardware Set-up
+
+### 6.1 PowerReg Module - 5V to 3.3V conversion and regulation
+
+*to be written*
+
+### 6.2 ESP8266-07 (Microcontroller) Module - Pin-out
+
+
+The following table lists the pin-out I ended up with:
 
 |**Pin** |**Function**|**Connection** | I/O |**Comment**|
 |--------|-------|---------------|-----------|----|
@@ -237,16 +228,47 @@ Ref: [ Esp8266 Arduino Core Documentation - I2C (Wire Library)](https://arduino-
 |GPIO15|Start-up|GND/10k pull-down||Must be driven low at start-up
 |GPIO16|Deep Sleep low power enable|REST/Shottkey diode (cathode towards GPIO16)|Output|GPIO16 is ony pin belonging to RTC (real time clock) module.  During deep sleep, GPIO16 pin is high.  When RTC triggers wake-up, it drives GPIO16 pin low, which also drives REST pin low, tirggering reset
 
+One of the many ESP8266 challenges are the limited number of pins,  including a single ADC pin and only six available GPIO pins (for ESP-07/12 modules; less pins on other modules).  In general, the other pins are used for start-up or IC operations. 
+
+GPIO pins 6 to 11 are used to connect to flash memory and therefore not availble for use, leaving nine remaining GPIO pins on the ESP-07 module. However, three of these pins are needed for start-up / reset functions as shown in the table below:
+
+<img src="http://www.forward.com.au/pfod/ESP8266/GPIOpins/ESP8266BootOptions.jpg" width="800">
+
+This essentially leaves six GPIO pins free for general use.
+
+This limited pins initially presented some issues to me as I  considered my project design, where, after iterating through a number of ideas, I still needed a total of seven GPIO pins:    
+
+1.   Read at least two thermistors into the single ADC (solution:  multiplexing, at the cost of using two GPIO pins);
+
+2.   Connect a 16x2 LCD display (solution: I2C, requiring another two GPIO pins); and
+
+3.   Have some sort of LCD menu control and data entry (solution: rotary encoder button, requiring an additional three GPIO pins)
+
+ 
+At the end of the day, I needed to re-use two of the pins required for startup (GPIO0 and GPIO2) nd I found the solution in this useful blog post:
+[ESP8266_01 Pin Magic](http://www.forward.com.au/pfod/ESP8266/GPIOpins/ESP8266_01_pin_magic.html) where the author showed how GPIO0 nd GPIO2 could be used for both start-up functions and also the I2C bus lines.
+
+Note: Before using I2C, pins for SDA and SCL need to be set by calling `Wire.begin(int sda, int scl)`, i.e. `Wire.begin(0, 2)` on the ESP module, else they default to pins 4(SDA) and 5(SCL).  Refernce: [ Esp8266 Arduino Core Documentation - I2C (Wire Library)](https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#i2c-wire-library) 
 
 
-##### 5.123 Thermistors Module - Temperature measurement, signal conditioning  & multiplexing
+#### 6.3 Thermistors Module 
+ 
+The Thermistor module consists of the thermistor temperature measurement, signal conditioning and multiplexing. 
 
-Dave at *Internet at Home Things* has a nice blog [8 ESP8266 analog inputs for 22 cents](https://internetofhomethings.com/homethings/?p=530) which got me thinking about a couple of ideas: 1) multiplexing to get around using multiple sensors with the single ESP8266 ADC and 2) using a differential amplifier to better scale the thermistor voltages to the ESP8266 ADC voltage requirements.
+First, 
+ 
+Dave at *Internet at Home Things* has a nice blog "[8 ESP8266 analog inputs for 22 cents](https://internetofhomethings.com/homethings/?p=530)" which got me thinking about a couple of ideas: 1) multiplexing to get around using multiple sensors with only a single ESP8266 ADC and 2) using a differential (OpAmp) amplifier to better scale the thermistor voltages to the ESP8266 ADC voltage requirements.
 
 OpAmp level shifter circuit also at http://www.esp8266-projects.com/2015/06/mailbag-arrival-acs712-current-sensor.html/
 
 
-###### 5.123 Multiplexing with the CD4066 Quad bilateral switch ######
+
+
+##### 6.31 Temperature measurement, signal conditioning  & multiplexing
+
+
+
+##### 6.32 Multiplexing with the CD4066 Quad bilateral switch #####
 
 One problem with the CD4066 switch is that it is "active high"; basically when a high signal is sent down the Control line, it turns the switch on.  
 
@@ -257,24 +279,28 @@ The pullup value is usually given in the datasheet, but its not listed in the ES
 However they do mention a "hold" function that requires 5uA to override, and that GPIO maximum output current is 12mA ;
 So a pulldown current of up to ~ 1-2mA would be safe to use - i.e. in the ballpark of 3.3kohm @3.3V should do the trick. 
 Putting large capacitors on IO lines is not generally not recommended, as this can cause high peak currents on those IO when they switch, make edge rates very slow, and cause EMI / latchup issues later on -
-so not good for reliability?>
-[Ref: GPIO12-14 high initial state during boot](http://www.esp8266.com/viewtopic.php?f=13&t=951&start=4)
+so not good for reliability?> 
+
+[Reference: GPIO12-14 high initial state during boot](http://www.esp8266.com/viewtopic.php?f=13&t=951&start=4)
 
 
-##### 5.124 LCD Module - Display & Control
+#### 6.4 LCD Module - Display & Control
 
 
 
-#### 5.13 Enclosure
+#### 6.5 Enclosure
+
+## 7 Board Design & Layout
+
 
 
 #### 5.14 Board Layout
 
-## 6.	Code
-###6.1.	ESP8266 (Arduino IDE)
-###6.2.	Thinkspeak Dashboard
-###6.3.	IFFT Notifications
-##7.	Wrap-up / Future modification possibilities 
+## 7.	Code
+###7.1.	ESP8266 (Arduino IDE)
+###7.2.	Thinkspeak Dashboard
+###7.3.	IFFT Notifications
+##8.	Wrap-up / Future modification possibilities 
 
 Future project extensions / additions / fixes that I am considering:
 
@@ -284,10 +310,13 @@ Future project extensions / additions / fixes that I am considering:
 
 ## 7.	Construction
 
+### 7.1 Breadboard Tests
+### 7.2 Homebrew PCB
+### 7.3 Enclosure - putting it all together
 
 ## 8.	Inspiration and Credits
 
-As a newbie, I spent far too long on this project (over 18 months, interspersed with other projects!) researching on the web, reading and bookmarking countless helpful websites on a wide variety of topics and issues.  In fact, the deep learning was one of the key attractions to me.  I've tried to refer to specific sites in relevant sections of the write-up.  The table below also lists some of the more general useful sites that I found ideas around this project.  Nevertheless it would be impossible to include an exhaustive list so my apologies to all those that helped me along the way yet I failed to acknowledge.
+As a newbie, I spent far too long on this project (over 18 months, interspersed with life and other projects!) educating myself, researching on the web and digesting countless helpful websites on a wide variety of topics and issues.  In fact, the deep learning was one of the key attractions to me.  I've tried to refer to specific helpful sites in relevant sections of the write-up.  The table below also lists some of the more general useful sites that I found ideas around this project.  Nevertheless it would be impossible to include an exhaustive list so my apologies to all those that helped me along the way yet I failed to acknowledge.
 
 Inspiration / Idea | Who |Source |
 :------------------ | :---:| :------ |
@@ -305,4 +334,4 @@ ESP8266 as a microcontroller  - Intro into replacing Arduino w/ ESP8266| Dave - 
 ***{Yet to be  completed}*** |||
  
 
-test
+
