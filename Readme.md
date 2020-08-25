@@ -8,7 +8,7 @@
 
 <p align="center">
 
-<img src="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png" width="150">
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/UnderConstruction.svg" width="150">
 
 <br><br>
 
