@@ -35,7 +35,7 @@ Coding was done using the Arduino IDE with data uploaded to ThingSpeak for displ
 
 ### Project Overview  ###
 
-A thorough project overview and description can be found in the project [Wiki](https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/wiki)covering design goals, hardware, software, etc.
+A thorough project overview and description can be found in the project [Wiki](https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/wiki) covering design goals, hardware, software, etc.
 
 
 ### Hardware ###
