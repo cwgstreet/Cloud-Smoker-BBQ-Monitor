@@ -1,14 +1,8 @@
 # Cloud Smoker BBQ Monitor Project
 
-
-<img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/>
-
-
 **Note**:  *This project exists as a hands-on opportunity to learn more about electronics, IoT, Arduino / ESP8266 programming, GitHub markdown, etc*
 
-<p align="center">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/UnderConstruction.svg" width="150">
+<img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/UnderConstruction.svg" width="150">
 
 <br>
 
