@@ -45,4 +45,8 @@ The Software folder contains the full CloudSmoker sketch as well as individual (
 Self-explanatory
 
 
+### Licence ###
+
+MIT Licence
+
 --- END ---
