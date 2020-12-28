@@ -1,19 +1,13 @@
 # Cloud Smoker BBQ Monitor Project
 
-
-<img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/>
-
-
 **Note**:  *This project exists as a hands-on opportunity to learn more about electronics, IoT, Arduino / ESP8266 programming, GitHub markdown, etc*
 
-<p align="center">
+<img style="float: right;" src="https://raw.githubusercontent.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/master/Images/CloudSmoker%20Icon%20colour.jpg" width="150"/> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/UnderConstruction.svg" width="100">
 
-<img src="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png" width="150">
-
-<br><br>
+<br>
 
 <b>Work in Progress</b><br>
-<br><br>
+<br>
  </p>
  
 
@@ -33,10 +27,12 @@ Hardware is based around the ESP8266 ESP-07 module (both for WiFi access and mic
 Coding was done using the Arduino IDE with data uploaded to ThingSpeak for display and further processing.  IFTT used for text notifications and Google Sheets for creating barbeque logs.
 
 
-### Project Overview Document ###
+### Project Overview  ###
 
-A thorough project overview and description document can be found in the Docs folder [here] (https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/blob/master/Docs/Project%20Overview%20-%20detailed.md) covering design goals, hardware, software, etc.
-### Hardware ###
+A thorough project overview and description can be found in the project [Wiki](https://github.com/cwgstreet/Cloud-Smoker-BBQ-Monitor/wiki) covering design goals, hardware, software, etc.
+
+
+### Hardware ###
 
 The Hardware folder contains 1) KiCad schematics and PCB board layouts and 2) selected datasheets.
 
@@ -48,5 +44,9 @@ The Software folder contains the full CloudSmoker sketch as well as individual (
 
 Self-explanatory
 
+
+### Licence ###
+
+MIT Licence
 
 --- END ---
