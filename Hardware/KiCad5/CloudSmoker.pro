@@ -1,4 +1,4 @@
-update=Monday, 28 December 2020 at 05:30:49 pm
+update=Saturday, 02 January 2021 at 05:54:03 pm
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,16 +25,16 @@ version=1
 NetIExt=net
 [general]
 version=1
+[eeschema]
+version=1
+LibDir=
 [schematic_editor]
 version=1
-PageLayoutDescrFile=CloudSmoker-icon.kicad_wks
+PageLayoutDescrFile=CloudSmoker-new-icon.kicad_wks
 PlotDirectoryName=
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
+SpiceAjustPassiveValues=0
 LabSize=60
-[eeschema]
-version=1
-LibDir=
+ERC_TestSimilarLabels=1

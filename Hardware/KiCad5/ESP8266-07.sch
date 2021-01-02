@@ -25,10 +25,10 @@ F 3 "" H 5700 3650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR012
+L power1:GND #PWR09
 U 1 1 59BACAED
 P 5700 4750
-F 0 "#PWR012" H 5700 4500 50  0001 C CNN
+F 0 "#PWR09" H 5700 4500 50  0001 C CNN
 F 1 "GND" H 5700 4600 50  0000 C CNN
 F 2 "" H 5700 4750 50  0001 C CNN
 F 3 "" H 5700 4750 50  0001 C CNN
@@ -36,10 +36,10 @@ F 3 "" H 5700 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:+3.3V #PWR013
+L power1:+3.3V #PWR08
 U 1 1 59BACB07
 P 5700 2550
-F 0 "#PWR013" H 5700 2400 50  0001 C CNN
+F 0 "#PWR08" H 5700 2400 50  0001 C CNN
 F 1 "+3.3V" H 5700 2690 50  0000 C CNN
 F 2 "" H 5700 2550 50  0001 C CNN
 F 3 "" H 5700 2550 50  0001 C CNN
@@ -177,17 +177,17 @@ SCL
 Text HLabel 4700 2450 1    60   Input ~ 0
 MUX
 $Comp
-L device:D_Zener D2
+L device:D_Zener D3
 U 1 1 59BB0CC7
 P 8800 4300
-F 0 "D2" H 8800 4400 50  0000 C CNN
+F 0 "D3" H 8800 4400 50  0000 C CNN
 F 1 "3.3V" H 8800 4200 50  0000 C CNN
 F 2 "" H 8800 4300 50  0001 C CNN
 F 3 "" H 8800 4300 50  0001 C CNN
 	1    8800 4300
 	0    1    1    0   
 $EndComp
-Text Notes 4850 5800 0    60   ~ 0
+Text Notes 5000 5550 0    60   ~ 0
 okay to leave unused GPIO pins floating; careful with others
 $Comp
 L device:C C6
@@ -211,7 +211,7 @@ F 3 "" H 6600 4300 50  0001 C CNN
 	1    6600 4300
 	1    0    0    -1  
 $EndComp
-Text Notes 4850 6050 0    60   ~ 0
+Text Notes 5000 5800 0    60   ~ 0
 GPIO4/GPIO5, GPIO12, 13, 14 => General purpose pins\nGPIO16 needed for deep sleep
 $Comp
 L device:R R8
@@ -236,23 +236,23 @@ F 3 "" H 6800 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:D_Schottky D1
+L device:D_Schottky D2
 U 1 1 59BB5CEA
 P 4500 3500
-F 0 "D1" H 4500 3600 50  0000 C CNN
+F 0 "D2" H 4500 3600 50  0000 C CNN
 F 1 "D_Schottky" H 4500 3400 50  0000 C CNN
 F 2 "" H 4500 3500 50  0001 C CNN
 F 3 "" H 4500 3500 50  0001 C CNN
 	1    4500 3500
 	0    -1   -1   0   
 $EndComp
-Text Notes 800  7500 0    60   ~ 0
+Text Notes 900  6650 0    60   ~ 0
 Schottky signal diode or 330 to 1K ohm resistor required between GPIO16 and REST pins\nGPIO16 is ony pin belonging to RTC (real time clock) module.  During deep sleep, GPIO16 pin is high.  \nWhen RTC triggers wake-up, it drives GPIO16 pin low, which also drives REST pin low, tirggering reset\n
 Text HLabel 4250 2450 1    60   Output ~ 0
 CTRL-A
 Text HLabel 4050 2450 1    60   Output ~ 0
 CTL-B
-Text Notes 800  7200 0    60   ~ 12
+Text Notes 900  6300 0    60   ~ 12
 Deep Sleep
 Text HLabel 3850 2450 1    60   Input ~ 0
 SW
@@ -290,7 +290,7 @@ Text HLabel 7600 2450 1    60   Input ~ 0
 DT
 Text Notes 2100 3750 0    39   ~ 0
 Stabilise power rail
-Text Notes 1050 6000 0    60   ~ 0
+Text Notes 1200 5750 0    60   ~ 0
 GPIO4/GPIO5, GPIO12, 13, 14 => General purpose pins\nGPIO16 needed for deep sleep
 Text Notes 6250 2550 0    39   ~ 0
 Initialise pins in code set-up: Wire.begin(0, 2)

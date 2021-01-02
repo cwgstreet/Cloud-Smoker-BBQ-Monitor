@@ -14,7 +14,7 @@ Comment3 "LCD Displacy - I2C"
 Comment4 ""
 $EndDescr
 $Comp
-L CloudSmoker-rescue:Conn_01x04 J6
+L Connector_Generic:Conn_01x04 J6
 U 1 1 59D724D0
 P 5200 3250
 F 0 "J6" H 5200 3450 50  0000 C CNN
@@ -25,7 +25,7 @@ F 3 "" H 5200 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CloudSmoker-rescue:2CH_I2C_Logic_Level_Convertor_Bidirectional U5
+L cg_modules:2CH_I2C_Logic_Level_Convertor_Bidirectional U5
 U 1 1 59D72818
 P 3350 3200
 F 0 "U5" H 3550 3700 50  0000 C CNN
@@ -46,10 +46,10 @@ Wire Notes Line
 Text Notes 5450 3000 0    51   ~ 10
 Dupont wires to off-Board LCD\n(Mounted to enclosure window)
 $Comp
-L power1:+3.3V #PWR028
+L power1:+3.3V #PWR030
 U 1 1 59D72B2B
 P 3250 2700
-F 0 "#PWR028" H 3250 2550 50  0001 C CNN
+F 0 "#PWR030" H 3250 2550 50  0001 C CNN
 F 1 "+3.3V" H 3250 2840 50  0000 C CNN
 F 2 "" H 3250 2700 50  0001 C CNN
 F 3 "" H 3250 2700 50  0001 C CNN
@@ -57,10 +57,10 @@ F 3 "" H 3250 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:+5V #PWR029
+L power1:+5V #PWR032
 U 1 1 59D72B4E
 P 3450 2700
-F 0 "#PWR029" H 3450 2550 50  0001 C CNN
+F 0 "#PWR032" H 3450 2550 50  0001 C CNN
 F 1 "+5V" H 3450 2840 50  0000 C CNN
 F 2 "" H 3450 2700 50  0001 C CNN
 F 3 "" H 3450 2700 50  0001 C CNN
@@ -68,10 +68,10 @@ F 3 "" H 3450 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR030
+L power1:GND #PWR031
 U 1 1 59D72B81
 P 3250 3700
-F 0 "#PWR030" H 3250 3450 50  0001 C CNN
+F 0 "#PWR031" H 3250 3450 50  0001 C CNN
 F 1 "GND" H 3250 3550 50  0000 C CNN
 F 2 "" H 3250 3700 50  0001 C CNN
 F 3 "" H 3250 3700 50  0001 C CNN
@@ -79,10 +79,10 @@ F 3 "" H 3250 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR031
+L power1:GND #PWR033
 U 1 1 59D72B9C
 P 3450 3700
-F 0 "#PWR031" H 3450 3450 50  0001 C CNN
+F 0 "#PWR033" H 3450 3450 50  0001 C CNN
 F 1 "GND" H 3450 3550 50  0000 C CNN
 F 2 "" H 3450 3700 50  0001 C CNN
 F 3 "" H 3450 3700 50  0001 C CNN
@@ -94,7 +94,7 @@ SCL
 Text HLabel 2950 3300 0    51   Input ~ 10
 SDA
 $Comp
-L CloudSmoker-rescue:LCD_16x2_I2C_OffBoard U6
+L cg_display:LCD_16x2_I2C_OffBoard U6
 U 1 1 59D80FE1
 P 7600 3250
 F 0 "U6" H 7250 3700 50  0000 C CNN
@@ -104,8 +104,6 @@ F 3 "" H 7600 2750 50  0001 C CNN
 	1    7600 3250
 	1    0    0    -1  
 $EndComp
-Wire Notes Line
-	6350 2300 6350 4650
 Wire Notes Line
 	6350 4650 8950 4650
 Wire Notes Line
@@ -123,7 +121,7 @@ Wire Notes Line
 Wire Notes Line
 	5400 4400 6750 4400
 $Comp
-L CloudSmoker-rescue:Rotary_Encoder_Switch_off-board SW3
+L cg_off-board:Rotary_Encoder_Switch_off-board SW3
 U 1 1 59DC4E10
 P 7600 4250
 F 0 "SW3" H 7600 4510 50  0000 C CNN
@@ -134,7 +132,7 @@ F 3 "" H 7600 4510 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CloudSmoker-rescue:Conn_01x05 J7
+L Connector_Generic:Conn_01x05 J7
 U 1 1 59DC4E88
 P 5200 4300
 F 0 "J7" H 5200 4600 50  0000 C CNN
@@ -144,8 +142,6 @@ F 3 "" H 5200 4300 50  0001 C CNN
 	1    5200 4300
 	1    0    0    -1  
 $EndComp
-Wire Notes Line
-	6350 2400 6350 4750
 Wire Notes Line
 	5400 4500 6750 4500
 Text Label 3750 3100 0    60   ~ 0
@@ -174,4 +170,6 @@ Text HLabel 5000 4300 0    60   Input ~ 0
 SW
 Text Notes 8000 4200 0    39   ~ 0
 Solder two 0.1uF caps directly \nbetween encoder pins A-C \nand B-C (where C = GND).  \nAlso, 4-5 where 5=GND
+Wire Notes Line
+	6350 2300 6350 4750
 $EndSCHEMATC
