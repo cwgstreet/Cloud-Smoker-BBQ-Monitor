@@ -1,132 +1,31 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:ESP8266
-LIBS:74xgxx
-LIBS:ac-dc
-LIBS:actel
-LIBS:allegro
-LIBS:Altera
-LIBS:analog_devices
-LIBS:battery_management
-LIBS:bbd
-LIBS:bosch
-LIBS:brooktre
-LIBS:cmos_ieee
-LIBS:dc-dc
-LIBS:diode
-LIBS:elec-unifil
-LIBS:ESD_Protection
-LIBS:ftdi
-LIBS:gennum
-LIBS:graphic_symbols
-LIBS:hc11
-LIBS:infineon
-LIBS:intersil
-LIBS:ir
-LIBS:Lattice
-LIBS:leds
-LIBS:LEM
-LIBS:logic_programmable
-LIBS:maxim
-LIBS:mechanical
-LIBS:microchip_dspic33dsc
-LIBS:microchip_pic10mcu
-LIBS:microchip_pic12mcu
-LIBS:microchip_pic16mcu
-LIBS:microchip_pic18mcu
-LIBS:microchip_pic24mcu
-LIBS:microchip_pic32mcu
-LIBS:modules
-LIBS:motor_drivers
-LIBS:motors
-LIBS:msp430
-LIBS:nordicsemi
-LIBS:nxp_armmcu
-LIBS:nxp
-LIBS:onsemi
-LIBS:Oscillators
-LIBS:Power_Management
-LIBS:powerint
-LIBS:pspice
-LIBS:references
-LIBS:relays
-LIBS:rfcom
-LIBS:RFSolutions
-LIBS:sensors
-LIBS:silabs
-LIBS:stm8
-LIBS:stm32
-LIBS:supertex
-LIBS:switches
-LIBS:transf
-LIBS:triac_thyristor
-LIBS:ttl_ieee
-LIBS:video
-LIBS:wiznet
-LIBS:Worldsemi
-LIBS:Xicor
-LIBS:zetex
-LIBS:Zilog
-LIBS:cg_device
-LIBS:cg_display
-LIBS:cg_modules
-LIBS:cg_off-board
-LIBS:CloudSmoker-cache
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
 Title "CloudSmoker - Wifi enabled BBQ Temperature Monitor"
-Date "2017-09-14"
+Date "2021-01-01"
 Rev "1"
 Comp "Carl Greenstreet"
 Comment1 ""
-Comment2 ""
+Comment2 "Main (top) sheet"
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Barrel_Jack J1
+L Connector:Barrel_Jack_Switch J1
 U 1 1 59B9C571
 P 1200 1250
 F 0 "J1" H 1200 1460 50  0000 C CNN
-F 1 "Barrel_Jack" H 1200 1075 50  0000 C CNN
+F 1 "Barrel_Jack" H 1200 1050 50  0000 C CNN
 F 2 "" H 1250 1210 50  0001 C CNN
 F 3 "" H 1250 1210 50  0001 C CNN
 	1    1200 1250
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR02
+L power1:+5V #PWR02
 U 1 1 59B9C9B0
 P 2200 7450
 F 0 "#PWR02" H 2200 7300 50  0001 C CNN
@@ -137,7 +36,7 @@ F 3 "" H 2200 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C1
+L device:C C1
 U 1 1 59B9C9F5
 P 2000 1400
 F 0 "C1" H 2025 1500 50  0000 L CNN
@@ -148,7 +47,7 @@ F 3 "" H 2000 1400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR03
+L power1:GND #PWR03
 U 1 1 59B9CA3D
 P 2000 1600
 F 0 "#PWR03" H 2000 1350 50  0001 C CNN
@@ -159,7 +58,7 @@ F 3 "" H 2000 1600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR04
+L power1:GND #PWR04
 U 1 1 59B9CD04
 P 1150 6750
 F 0 "#PWR04" H 1150 6500 50  0001 C CNN
@@ -170,7 +69,7 @@ F 3 "" H 1150 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PWR_FLAG #FLG05
+L power1:PWR_FLAG #FLG05
 U 1 1 59B9CD34
 P 1150 6500
 F 0 "#FLG05" H 1150 6575 50  0001 C CNN
@@ -181,7 +80,7 @@ F 3 "" H 1150 6500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PWR_FLAG #FLG06
+L power1:PWR_FLAG #FLG06
 U 1 1 59B9CD50
 P 1600 6750
 F 0 "#FLG06" H 1600 6825 50  0001 C CNN
@@ -226,7 +125,7 @@ F5 "DT" I R 8650 5100 60
 F6 "SW" I R 8650 5250 60 
 $EndSheet
 $Comp
-L +5V #PWR07
+L power1:+5V #PWR07
 U 1 1 59B9CD1C
 P 1600 6500
 F 0 "#PWR07" H 1600 6350 50  0001 C CNN
@@ -237,7 +136,7 @@ F 3 "" H 1600 6500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PWR_FLAG #FLG08
+L power1:PWR_FLAG #FLG08
 U 1 1 59BABC00
 P 2050 6750
 F 0 "#FLG08" H 2050 6825 50  0001 C CNN
@@ -248,7 +147,7 @@ F 3 "" H 2050 6750 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L +3.3V #PWR09
+L power1:+3.3V #PWR09
 U 1 1 59BABBE5
 P 2050 6500
 F 0 "#PWR09" H 2050 6350 50  0001 C CNN
@@ -317,7 +216,7 @@ Text Label 2550 4100 0    60   ~ 0
 Text Label 2550 4300 0    60   ~ 0
 GND
 $Comp
-L Conn_01x03 J2
+L Connector_Generic:Conn_01x03 J2
 U 1 1 59DEBC06
 P 5600 1550
 F 0 "J2" H 5600 1750 50  0000 C CNN
@@ -328,7 +227,7 @@ F 3 "" H 5600 1550 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L 5V-3V3_StepDown_module_off-board U1
+L cg_off-board:5V-3V3_StepDown_module_off-board U1
 U 1 1 59DEBC0D
 P 4200 1550
 F 0 "U1" H 4200 1850 50  0000 C CNN
@@ -347,7 +246,7 @@ GND
 Text Notes 3700 1050 0    60   ~ 12
 Off-Board Module
 $Comp
-L L L1
+L device:L L1
 U 1 1 59DEBC22
 P 6900 1300
 F 0 "L1" V 6850 1300 50  0000 C CNN
@@ -358,7 +257,7 @@ F 3 "" H 6900 1300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R1
+L device:R R1
 U 1 1 59DEBC29
 P 7450 1300
 F 0 "R1" V 7530 1300 50  0000 C CNN
@@ -369,7 +268,7 @@ F 3 "" H 7450 1300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C2
+L device:C C2
 U 1 1 59DEBC30
 P 7800 1700
 F 0 "C2" H 7825 1800 50  0000 L CNN
@@ -380,7 +279,7 @@ F 3 "" H 7800 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L power1:GND #PWR010
 U 1 1 59DEBC3C
 P 8500 2150
 F 0 "#PWR010" H 8500 1900 50  0001 C CNN
@@ -393,7 +292,7 @@ $EndComp
 Text Notes 6750 1050 0    60   ~ 0
 RLC Lowpass Power Filtering 
 $Comp
-L CP C3
+L device:CP C3
 U 1 1 59DEBC50
 P 8200 1700
 F 0 "C3" H 8225 1800 50  0000 L CNN
@@ -406,7 +305,7 @@ $EndComp
 Text Notes 4700 2450 0    60   ~ 12
 5V->3.3V stepdown and power regulation / stabilisation 
 $Comp
-L +3V3 #PWR011
+L power1:+3V3 #PWR011
 U 1 1 59DEC909
 P 6550 1550
 F 0 "#PWR011" H 6550 1400 50  0001 C CNN
@@ -429,7 +328,7 @@ Wired connections
 Text GLabel 2200 1150 2    60   Output ~ 0
 +5V
 Wire Wire Line
-	1500 1350 1700 1350
+	1500 1350 1600 1350
 Wire Wire Line
 	1500 1250 1600 1250
 Wire Wire Line
@@ -438,7 +337,7 @@ Connection ~ 1600 1350
 Wire Wire Line
 	1700 1350 1700 1600
 Wire Wire Line
-	1500 1150 2200 1150
+	1500 1150 2000 1150
 Wire Wire Line
 	2000 1550 2000 1600
 Wire Wire Line
@@ -501,7 +400,7 @@ Wire Wire Line
 Wire Wire Line
 	5800 1550 6550 1550
 Wire Wire Line
-	5800 1650 6150 1650
+	5800 1650 6100 1650
 Wire Notes Line
 	5500 1450 4600 1450
 Wire Notes Line
@@ -517,11 +416,9 @@ Wire Notes Line
 Wire Notes Line
 	5000 900  3300 900 
 Wire Wire Line
-	6100 1650 6100 1650
-Wire Wire Line
 	6100 1650 6100 2050
 Wire Wire Line
-	6100 2050 8500 2050
+	6100 2050 7800 2050
 Wire Wire Line
 	8500 2050 8500 2150
 Connection ~ 6100 1650
@@ -537,7 +434,7 @@ Wire Wire Line
 	8200 1850 8200 2050
 Connection ~ 8200 2050
 Wire Wire Line
-	7600 1300 8500 1300
+	7600 1300 7800 1300
 Wire Wire Line
 	8200 1300 8200 1550
 Connection ~ 8200 1300
@@ -547,7 +444,7 @@ Connection ~ 7800 1300
 Wire Wire Line
 	7300 1300 7050 1300
 $Comp
-L GND #PWR01
+L power1:GND #PWR01
 U 1 1 59B9C960
 P 1700 1600
 F 0 "#PWR01" H 1700 1350 50  0001 C CNN
@@ -557,4 +454,18 @@ F 3 "" H 1700 1600 50  0001 C CNN
 	1    1700 1600
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1600 1350 1700 1350
+Wire Wire Line
+	2000 1150 2200 1150
+Wire Wire Line
+	6100 1650 6150 1650
+Wire Wire Line
+	7800 2050 8200 2050
+Wire Wire Line
+	8200 2050 8500 2050
+Wire Wire Line
+	8200 1300 8500 1300
+Wire Wire Line
+	7800 1300 8200 1300
 $EndSCHEMATC

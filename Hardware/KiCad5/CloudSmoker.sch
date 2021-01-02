@@ -5,20 +5,20 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
 Title "CloudSmoker - Wifi enabled BBQ Temperature Monitor"
-Date "2017-09-14"
+Date "2021-01-01"
 Rev "1"
 Comp "Carl Greenstreet"
 Comment1 ""
-Comment2 ""
+Comment2 "Main (top) sheet"
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CloudSmoker-rescue:Barrel_Jack J1
+L Connector:Barrel_Jack_Switch J1
 U 1 1 59B9C571
 P 1200 1250
 F 0 "J1" H 1200 1460 50  0000 C CNN
-F 1 "Barrel_Jack" H 1200 1075 50  0000 C CNN
+F 1 "Barrel_Jack" H 1200 1050 50  0000 C CNN
 F 2 "" H 1250 1210 50  0001 C CNN
 F 3 "" H 1250 1210 50  0001 C CNN
 	1    1200 1250
@@ -216,7 +216,7 @@ Text Label 2550 4100 0    60   ~ 0
 Text Label 2550 4300 0    60   ~ 0
 GND
 $Comp
-L CloudSmoker-rescue:Conn_01x03 J2
+L Connector_Generic:Conn_01x03 J2
 U 1 1 59DEBC06
 P 5600 1550
 F 0 "J2" H 5600 1750 50  0000 C CNN
@@ -227,7 +227,7 @@ F 3 "" H 5600 1550 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L CloudSmoker-rescue:5V-3V3_StepDown_module_off-board U1
+L cg_off-board:5V-3V3_StepDown_module_off-board U1
 U 1 1 59DEBC0D
 P 4200 1550
 F 0 "U1" H 4200 1850 50  0000 C CNN
