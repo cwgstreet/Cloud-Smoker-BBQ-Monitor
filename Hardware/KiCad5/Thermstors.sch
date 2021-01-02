@@ -13,110 +13,8 @@ Comment2 "Manages multiple sensors through multiplex (MUX) using 4066 Quad bilat
 Comment3 "Includes voltage scaling (OpAmp Level Shifter) for ESP8266 0.2-1.25V ADC"
 Comment4 "Thermister Temp Probes"
 $EndDescr
-$Comp
-L CloudSmoker-rescue:4066 U3
-U 1 1 59BB773F
-P 3150 -700
-F 0 "U3" H 3350 -849 50  0000 C CNN
-F 1 "4066" H 3350 -550 50  0000 C CNN
-F 2 "" H 3150 -700 60  0001 C CNN
-F 3 "" H 3150 -700 60  0001 C CNN
-	1    3150 -700
-	1    0    0    -1  
-$EndComp
-$Comp
-L CloudSmoker-rescue:4066 U3
-U 2 1 59BB778B
-P 4350 -700
-F 0 "U3" H 4550 -849 50  0000 C CNN
-F 1 "4066" H 4550 -550 50  0000 C CNN
-F 2 "" H 4350 -700 60  0001 C CNN
-F 3 "" H 4350 -700 60  0001 C CNN
-	2    4350 -700
-	1    0    0    -1  
-$EndComp
-$Comp
-L CloudSmoker-rescue:4066 U3
-U 3 1 59BB77C2
-P 5450 -700
-F 0 "U3" H 5650 -849 50  0000 C CNN
-F 1 "4066" H 5650 -550 50  0000 C CNN
-F 2 "" H 5450 -700 60  0001 C CNN
-F 3 "" H 5450 -700 60  0001 C CNN
-	3    5450 -700
-	1    0    0    -1  
-$EndComp
-$Comp
-L CloudSmoker-rescue:4066 U3
-U 4 1 59BB77FC
-P 6550 -700
-F 0 "U3" H 6750 -849 50  0000 C CNN
-F 1 "4066" H 6750 -550 50  0000 C CNN
-F 2 "" H 6550 -700 60  0001 C CNN
-F 3 "" H 6550 -700 60  0001 C CNN
-	4    6550 -700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power1:GND #PWR014
-U 1 1 59BB79EF
-P 5500 -450
-F 0 "#PWR014" H 5500 -700 50  0001 C CNN
-F 1 "GND" H 5500 -600 50  0000 C CNN
-F 2 "" H 5500 -450 50  0001 C CNN
-F 3 "" H 5500 -450 50  0001 C CNN
-	1    5500 -450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power1:+3.3V #PWR015
-U 1 1 59BB7C0A
-P 6050 -1550
-F 0 "#PWR015" H 6050 -1700 50  0001 C CNN
-F 1 "+3.3V" H 6050 -1410 50  0000 C CNN
-F 2 "" H 6050 -1550 50  0001 C CNN
-F 3 "" H 6050 -1550 50  0001 C CNN
-	1    6050 -1550
-	1    0    0    -1  
-$EndComp
-NoConn ~ 5750 -700
-NoConn ~ 6850 -700
-Text HLabel 2700 -550 0    60   Input ~ 0
-CTL-A
-NoConn ~ 5150 -550
-NoConn ~ 6250 -550
-Text HLabel 4250 -1650 2    60   Output ~ 0
-MUX
-Text HLabel 4050 -550 0    60   Input ~ 0
-CTL-B
-Text Label 4000 -700 2    60   ~ 0
-PitADC
-Text Label 2700 -700 2    60   ~ 0
-MeatADC
-Text Notes 4200 2300 0    60   ~ 12
+Text Notes 3500 1950 0    60   ~ 12
          2:1 Multiplexer - 4066B quad bilateral switch (only 2 switches used)\n
-$Comp
-L device:R R15
-U 1 1 59BBFF26
-P 5150 -1200
-F 0 "R15" V 5230 -1200 50  0000 C CNN
-F 1 "R" V 5150 -1200 50  0000 C CNN
-F 2 "" V 5080 -1200 50  0001 C CNN
-F 3 "" H 5150 -1200 50  0001 C CNN
-	1    5150 -1200
-	1    0    0    -1  
-$EndComp
-$Comp
-L device:R R22
-U 1 1 59BBFF55
-P 6250 -1200
-F 0 "R22" V 6330 -1200 50  0000 C CNN
-F 1 "R" V 6250 -1200 50  0000 C CNN
-F 2 "" V 6180 -1200 50  0001 C CNN
-F 3 "" H 6250 -1200 50  0001 C CNN
-	1    6250 -1200
-	1    0    0    -1  
-$EndComp
 Text Notes 2150 2850 0    59   ~ 12
 2.5mm Probe Jacks\nGround shield not tip
 $Comp
@@ -383,21 +281,8 @@ Text Notes 4850 3850 0    59   ~ 12
 Voltage divider (0.2V offset)
 Text Notes 7600 2850 0    59   ~ 12
             OpAmp Level Shifter                      \n(approx 0.2 - 1.15V output for ESP8266 ADC)
-Text Notes 5050 2500 0    60   Italic 0
+Text Notes 4500 2150 0    60   Italic 0
 Note: Votage drop across bidirectional \nswitch must be <0.8V (calculated from R-on shown)
-$Comp
-L device:C C7
-U 1 1 59DB4A95
-P 7150 -950
-F 0 "C7" H 7175 -850 50  0000 L CNN
-F 1 "0.1u" H 7175 -1050 50  0000 L CNN
-F 2 "" H 7188 -1100 50  0001 C CNN
-F 3 "" H 7150 -950 50  0001 C CNN
-	1    7150 -950
-	1    0    0    -1  
-$EndComp
-Text Notes 7400 -950 0    60   Italic 0
-Place cap as close to Pin14 Vdd as possible
 Text Notes 1850 3000 0    60   Italic 0
 check to see if these should be off-board
 NoConn ~ 1650 4300
@@ -446,11 +331,6 @@ F 3 "" H 2650 4900 50  0001 C CNN
 	1    2650 4900
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7150 -450 7150 -800
-Connection ~ 6550 -1450
-Wire Wire Line
-	7150 -1450 7150 -1100
 Wire Wire Line
 	7400 5500 7400 5600
 Wire Wire Line
@@ -532,58 +412,6 @@ Wire Wire Line
 	9250 3500 9250 3400
 Wire Wire Line
 	9100 3400 9250 3400
-Connection ~ 4150 -1550
-Wire Wire Line
-	4150 -1650 4250 -1650
-Wire Wire Line
-	4150 -1550 4150 -1650
-Wire Wire Line
-	4700 -700 4650 -700
-Wire Wire Line
-	4700 -1550 4700 -700
-Wire Wire Line
-	3500 -1550 4150 -1550
-Wire Wire Line
-	3500 -700 3500 -1550
-Connection ~ 5150 -1450
-Wire Wire Line
-	5150 -1450 5150 -1350
-Connection ~ 6250 -1450
-Wire Wire Line
-	6250 -1450 6250 -1350
-Wire Wire Line
-	6250 -700 6250 -1050
-Connection ~ 5450 -1450
-Wire Wire Line
-	5450 -1450 5450 -950
-Connection ~ 4350 -1450
-Wire Wire Line
-	4350 -950 4350 -1450
-Connection ~ 6050 -1450
-Wire Wire Line
-	3150 -1450 3150 -950
-Wire Wire Line
-	3150 -1450 4350 -1450
-Wire Wire Line
-	6550 -1450 6550 -950
-Wire Wire Line
-	3500 -700 3450 -700
-Wire Wire Line
-	4050 -700 4000 -700
-Wire Wire Line
-	2850 -550 2700 -550
-Wire Wire Line
-	2850 -700 2700 -700
-Wire Wire Line
-	6050 -1450 6050 -1550
-Wire Wire Line
-	5150 -700 5150 -1050
-Connection ~ 4350 -450
-Wire Wire Line
-	3150 -450 4350 -450
-Connection ~ 6550 -450
-Connection ~ 5500 -450
-Connection ~ 5450 -450
 Wire Wire Line
 	1650 4200 2750 4200
 Wire Wire Line
@@ -678,8 +506,6 @@ place RC filter as close \nto ADC as possible
 Text Notes 8950 4600 0    60   Italic 0
 place RC filter as close \nto ADC as possible
 Wire Wire Line
-	6550 -1450 7150 -1450
-Wire Wire Line
 	7750 4700 8000 4700
 Wire Wire Line
 	7950 5500 8100 5500
@@ -698,26 +524,6 @@ Wire Wire Line
 Wire Wire Line
 	9250 3400 9550 3400
 Wire Wire Line
-	4150 -1550 4700 -1550
-Wire Wire Line
-	5150 -1450 5450 -1450
-Wire Wire Line
-	6250 -1450 6550 -1450
-Wire Wire Line
-	5450 -1450 6050 -1450
-Wire Wire Line
-	4350 -1450 5150 -1450
-Wire Wire Line
-	6050 -1450 6250 -1450
-Wire Wire Line
-	4350 -450 5450 -450
-Wire Wire Line
-	6550 -450 7150 -450
-Wire Wire Line
-	5500 -450 6550 -450
-Wire Wire Line
-	5450 -450 5500 -450
-Wire Wire Line
 	2350 4900 2500 4900
 Wire Wire Line
 	2750 4200 2850 4200
@@ -730,12 +536,12 @@ Wire Wire Line
 $Comp
 L 4xxx:4066 U?
 U 1 1 5FEF59DE
-P 2200 1450
-F 0 "U?" H 2200 1277 50  0000 C CNN
-F 1 "4066" H 2200 1186 50  0000 C CNN
-F 2 "" H 2200 1450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 2200 1450 50  0001 C CNN
-	1    2200 1450
+P 3000 1400
+F 0 "U?" H 3000 1227 50  0000 C CNN
+F 1 "4066" H 3000 1136 50  0000 C CNN
+F 2 "" H 3000 1400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 3000 1400 50  0001 C CNN
+	1    3000 1400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -848,108 +654,194 @@ Wire Notes Line
 $Comp
 L 4xxx:4066 U?
 U 2 1 60016902
-P 3700 1450
-F 0 "U?" H 3700 1277 50  0000 C CNN
-F 1 "4066" H 3700 1186 50  0000 C CNN
-F 2 "" H 3700 1450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 3700 1450 50  0001 C CNN
-	2    3700 1450
+P 4250 1400
+F 0 "U?" H 4250 1227 50  0000 C CNN
+F 1 "4066" H 4250 1136 50  0000 C CNN
+F 2 "" H 4250 1400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 4250 1400 50  0001 C CNN
+	2    4250 1400
 	1    0    0    -1  
 $EndComp
 $Comp
 L 4xxx:4066 U?
 U 3 1 60017197
-P 4900 1450
-F 0 "U?" H 4900 1277 50  0000 C CNN
-F 1 "4066" H 4900 1186 50  0000 C CNN
-F 2 "" H 4900 1450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 4900 1450 50  0001 C CNN
-	3    4900 1450
+P 5300 1400
+F 0 "U?" H 5300 1227 50  0000 C CNN
+F 1 "4066" H 5300 1136 50  0000 C CNN
+F 2 "" H 5300 1400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 5300 1400 50  0001 C CNN
+	3    5300 1400
 	1    0    0    -1  
 $EndComp
 $Comp
 L 4xxx:4066 U?
 U 4 1 60018893
-P 6050 1450
-F 0 "U?" H 6050 1277 50  0000 C CNN
-F 1 "4066" H 6050 1186 50  0000 C CNN
-F 2 "" H 6050 1450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 6050 1450 50  0001 C CNN
-	4    6050 1450
+P 6450 1400
+F 0 "U?" H 6450 1227 50  0000 C CNN
+F 1 "4066" H 6450 1136 50  0000 C CNN
+F 2 "" H 6450 1400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 6450 1400 50  0001 C CNN
+	4    6450 1400
 	1    0    0    -1  
 $EndComp
 $Comp
 L 4xxx:4066 U?
 U 5 1 6001AAA2
-P 7100 1450
-F 0 "U?" H 7330 1496 50  0000 L CNN
-F 1 "4066" H 7330 1405 50  0000 L CNN
-F 2 "" H 7100 1450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 7100 1450 50  0001 C CNN
-	5    7100 1450
+P 7500 1400
+F 0 "U?" H 7730 1446 50  0000 L CNN
+F 1 "4066" H 7730 1355 50  0000 L CNN
+F 2 "" H 7500 1400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/cd4066b.pdf" H 7500 1400 50  0001 C CNN
+	5    7500 1400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power1:GND #PWR?
 U 1 1 60023E3D
-P 7100 1950
-F 0 "#PWR?" H 7100 1700 50  0001 C CNN
-F 1 "GND" H 7100 1800 50  0000 C CNN
-F 2 "" H 7100 1950 50  0001 C CNN
-F 3 "" H 7100 1950 50  0001 C CNN
-	1    7100 1950
+P 7500 1900
+F 0 "#PWR?" H 7500 1650 50  0001 C CNN
+F 1 "GND" H 7500 1750 50  0000 C CNN
+F 2 "" H 7500 1900 50  0001 C CNN
+F 3 "" H 7500 1900 50  0001 C CNN
+	1    7500 1900
 	1    0    0    -1  
 $EndComp
 $Comp
 L device:C C?
 U 1 1 60024C29
-P 7600 1100
-F 0 "C?" H 7625 1200 50  0000 L CNN
-F 1 "0.1u" H 7625 1000 50  0000 L CNN
-F 2 "" H 7638 950 50  0001 C CNN
-F 3 "" H 7600 1100 50  0001 C CNN
-	1    7600 1100
+P 8000 1050
+F 0 "C?" H 8025 1150 50  0000 L CNN
+F 1 "0.1u" H 8025 950 50  0000 L CNN
+F 2 "" H 8038 900 50  0001 C CNN
+F 3 "" H 8000 1050 50  0001 C CNN
+	1    8000 1050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power1:+3.3V #PWR?
 U 1 1 60026C66
-P 7100 850
-F 0 "#PWR?" H 7100 700 50  0001 C CNN
-F 1 "+3.3V" H 7100 990 50  0000 C CNN
-F 2 "" H 7100 850 50  0001 C CNN
-F 3 "" H 7100 850 50  0001 C CNN
-	1    7100 850 
+P 7500 800
+F 0 "#PWR?" H 7500 650 50  0001 C CNN
+F 1 "+3.3V" H 7500 940 50  0000 C CNN
+F 2 "" H 7500 800 50  0001 C CNN
+F 3 "" H 7500 800 50  0001 C CNN
+	1    7500 800 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7100 950  7600 950 
+	7500 900  8000 900 
 Wire Wire Line
-	7100 950  7100 850 
-Connection ~ 7100 950 
+	7500 900  7500 800 
+Connection ~ 7500 900 
 $Comp
 L power1:GND #PWR?
 U 1 1 6002F449
-P 7600 1250
-F 0 "#PWR?" H 7600 1000 50  0001 C CNN
-F 1 "GND" H 7600 1100 50  0000 C CNN
-F 2 "" H 7600 1250 50  0001 C CNN
-F 3 "" H 7600 1250 50  0001 C CNN
-	1    7600 1250
+P 8000 1200
+F 0 "#PWR?" H 8000 950 50  0001 C CNN
+F 1 "GND" H 8000 1050 50  0000 C CNN
+F 2 "" H 8000 1200 50  0001 C CNN
+F 3 "" H 8000 1200 50  0001 C CNN
+	1    8000 1200
 	1    0    0    -1  
 $EndComp
-Text Notes 7850 1150 0    60   Italic 0
+Text Notes 8250 1100 0    60   Italic 0
 Place cap as close to \nPin14 Vdd as possible
-Text HLabel 3700 1150 1    60   Input ~ 0
+Text HLabel 4250 1100 1    60   Input ~ 0
 CTL-B
-Text HLabel 4000 1450 2    60   Output ~ 0
+Text HLabel 4550 1400 2    60   Output ~ 0
 MUX
-Text HLabel 2500 1450 2    60   Output ~ 0
+Text HLabel 3300 1400 2    60   Output ~ 0
 MUX
-Text HLabel 2200 1150 1    60   Input ~ 0
+Text HLabel 3000 1100 1    60   Input ~ 0
 CTL-A
-Text Label 3400 1450 2    60   ~ 0
+Text Label 3950 1400 2    60   ~ 0
 PitADC
-Text Label 1900 1450 2    60   ~ 0
+Text Label 2700 1400 2    60   ~ 0
 MeatADC
+$Comp
+L power1:GND #PWR?
+U 1 1 6006264B
+P 6750 1400
+F 0 "#PWR?" H 6750 1150 50  0001 C CNN
+F 1 "GND" H 6750 1250 50  0000 C CNN
+F 2 "" H 6750 1400 50  0001 C CNN
+F 3 "" H 6750 1400 50  0001 C CNN
+	1    6750 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power1:GND #PWR?
+U 1 1 600636AB
+P 6150 1400
+F 0 "#PWR?" H 6150 1150 50  0001 C CNN
+F 1 "GND" H 6150 1250 50  0000 C CNN
+F 2 "" H 6150 1400 50  0001 C CNN
+F 3 "" H 6150 1400 50  0001 C CNN
+	1    6150 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power1:GND #PWR?
+U 1 1 60063B39
+P 6600 1050
+F 0 "#PWR?" H 6600 800 50  0001 C CNN
+F 1 "GND" H 6600 900 50  0000 C CNN
+F 2 "" H 6600 1050 50  0001 C CNN
+F 3 "" H 6600 1050 50  0001 C CNN
+	1    6600 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power1:GND #PWR?
+U 1 1 60064672
+P 5450 1050
+F 0 "#PWR?" H 5450 800 50  0001 C CNN
+F 1 "GND" H 5450 900 50  0000 C CNN
+F 2 "" H 5450 1050 50  0001 C CNN
+F 3 "" H 5450 1050 50  0001 C CNN
+	1    5450 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power1:GND #PWR?
+U 1 1 60064C28
+P 5600 1400
+F 0 "#PWR?" H 5600 1150 50  0001 C CNN
+F 1 "GND" H 5600 1250 50  0000 C CNN
+F 2 "" H 5600 1400 50  0001 C CNN
+F 3 "" H 5600 1400 50  0001 C CNN
+	1    5600 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power1:GND #PWR?
+U 1 1 600650FA
+P 5000 1400
+F 0 "#PWR?" H 5000 1150 50  0001 C CNN
+F 1 "GND" H 5000 1250 50  0000 C CNN
+F 2 "" H 5000 1400 50  0001 C CNN
+F 3 "" H 5000 1400 50  0001 C CNN
+	1    5000 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 1100 5300 1000
+Wire Wire Line
+	5300 1000 5450 1000
+Wire Wire Line
+	5450 1000 5450 1050
+Wire Wire Line
+	6450 1100 6450 1000
+Wire Wire Line
+	6450 1000 6600 1000
+Wire Wire Line
+	6600 1000 6600 1050
+Wire Notes Line
+	2000 550  9500 550 
+Wire Notes Line
+	9500 550  9500 2250
+Wire Notes Line
+	9500 2250 2000 2250
+Wire Notes Line
+	2000 2250 2000 550 
 $EndSCHEMATC
