@@ -246,13 +246,13 @@ F 3 "" H 4500 3500 50  0001 C CNN
 	1    4500 3500
 	0    -1   -1   0   
 $EndComp
-Text Notes 900  6650 0    60   ~ 0
+Text Notes 750  6600 0    60   ~ 0
 Schottky signal diode or 330 to 1K ohm resistor required between GPIO16 and REST pins\nGPIO16 is ony pin belonging to RTC (real time clock) module.  During deep sleep, GPIO16 pin is high.  \nWhen RTC triggers wake-up, it drives GPIO16 pin low, which also drives REST pin low, tirggering reset\n
 Text HLabel 4250 2450 1    60   Output ~ 0
 CTRL-A
 Text HLabel 4050 2450 1    60   Output ~ 0
 CTL-B
-Text Notes 900  6300 0    60   ~ 12
+Text Notes 750  6250 0    60   ~ 12
 Deep Sleep
 Text HLabel 3850 2450 1    60   Input ~ 0
 SW
